@@ -24,14 +24,14 @@ public class Snake {
 
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
-       // screen.getPlay().addActionListener(new DepositActionListener());
-        //screen.getHighScore().addActionListener(new WithdrawActionListener());
-        //screen.getDeleteGame().addActionListener(new TransferActionListener());
+        screen.getPlay().addActionListener(new PlayActionListener());
+        screen.getHighScore().addActionListener(new HighScoreActionListener());
+        screen.getDeleteGame().addActionListener(new DeleteActionListener());
 
         screen.show(Screen.WELCOME);
     }
 
-    // Welcome Action Listener, lavet af Peter og Henrik
+    // Welcome ActionListener
     private class WelcomeActionListener implements ActionListener
     {
         @Override
@@ -53,7 +53,7 @@ public class Snake {
     }
 
 
-    //UserMenuAction Listener
+    //UserMenu ActionListener
     private class UserMenuActionListener implements ActionListener
     {
         @Override
@@ -77,6 +77,66 @@ public class Snake {
             }
         }
     }
+
+    // Play ActionListener
+    private class PlayActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+                // Actions hvis man klikker på Submit knappen
+                if (e.getSource() == screen.getPlay().getBtnPlay())
+                {
+
+                    screen.show(Screen.USERMENU);
+                    screen.getPlay().clearPlay();
+
+                }
+                else if (e.getSource() == screen.getPlay().getBtnCancel())
+                {
+                    screen.show(Screen.USERMENU);
+                    screen.getPlay().clearPlay();
+                }
+        }
+    }
+
+    // Delete ActionListener
+    private class DeleteActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // Actions hvis man klikker på delete knappen
+            if (e.getSource() == screen.getDeleteGame().getBtnDeleteGame())
+            {
+
+                screen.show(Screen.USERMENU);
+                screen.getDeleteGame().clearDeleteGame();
+
+            }
+            else if (e.getSource() == screen.getDeleteGame().getBtnCancel())
+            {
+                screen.show(Screen.USERMENU);
+                screen.getDeleteGame().clearDeleteGame();
+            }
+        }
+    }
+
+    private class HighScoreActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // Actions hvis man klikker på delete knappen
+            if (e.getSource() == screen.getHighScore().getBtnBack())
+            {
+
+                screen.show(Screen.USERMENU);
+
+            }
+        }
+    }
+
 
 
 

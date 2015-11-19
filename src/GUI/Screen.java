@@ -51,7 +51,7 @@ public class Screen extends JFrame
         contentPane.add(welcome, WELCOME);
         contentPane.add(userMenu, USERMENU);
         contentPane.add(play, PLAY);
-       // contentPane.add(highScore, HIGHSCORE);
+        contentPane.add(highScore, HIGHSCORE);
         contentPane.add(deleteGame, DELETEGAME);
         //contentPane.add(confirmationPanel,CONFIRMATION);
 

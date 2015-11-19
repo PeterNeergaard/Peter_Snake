@@ -61,7 +61,6 @@ public class DeleteGame extends JPanel
         add(btnCancel);
     }
 
-    // Slet bruger
     public void clearDeleteGame()
     {
         txtDeleteGame.setText("");
@@ -73,12 +72,12 @@ public class DeleteGame extends JPanel
      //   return gameId;
   //  }
 
-    public void settxtDeleteUser(String DeleteUser)
-    {
-        this.deleteUser = DeleteUser;
-    }
+    //public void settxtDeleteUser(String DeleteUser)
+    //{
+    //    this.deleteUser = DeleteUser;
+    //}
 
-    public JButton getBtnDeleteUser()
+    public JButton getBtnDeleteGame()
     {
         return btnDeleteGame;
     }

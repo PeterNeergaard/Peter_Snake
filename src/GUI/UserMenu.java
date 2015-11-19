@@ -51,7 +51,7 @@ public class UserMenu extends JPanel {
 
         btnLogOut = new JButton("Log out");
         btnLogOut.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
-        btnLogOut.setBounds(447, 270, 67, 29);
+        btnLogOut.setBounds(6, 265, 76, 29);
         add(btnLogOut);
     }
 
