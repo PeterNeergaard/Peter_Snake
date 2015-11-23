@@ -16,14 +16,14 @@ public class Screen extends JFrame
     public static final String PLAY = "play124";
     public static final String HIGHSCORE = "highscore1234";
     public static final String DELETEGAME = "deletegame1234";
-   // public static final String CONFIRMATION = "confimationPanel1234";
+    public static final String CONFIRMATION = "confimationPanel1234";
 
     private Welcome welcome;
     private UserMenu userMenu;
-    private Play play;
+    public Play play;
     private HighScore highScore;
-    private DeleteGame deleteGame;
-   // private ConfirmationPanel confirmationPanel;
+    public DeleteGame deleteGame;
+    private ConfirmationPanel confirmationPanel;
 
     private JPanel contentPane;
     private CardLayout c;
@@ -43,7 +43,7 @@ public class Screen extends JFrame
         play = new Play();
         highScore = new HighScore();
         deleteGame = new DeleteGame();
-        //confirmationPanel = new ConfirmationPanel();
+        confirmationPanel = new ConfirmationPanel();
 
 
         // Opretter paneler der indeholder vores card/kort
@@ -53,7 +53,7 @@ public class Screen extends JFrame
         contentPane.add(play, PLAY);
         contentPane.add(highScore, HIGHSCORE);
         contentPane.add(deleteGame, DELETEGAME);
-        //contentPane.add(confirmationPanel,CONFIRMATION);
+        contentPane.add(confirmationPanel,CONFIRMATION);
 
 
         c = (CardLayout) getContentPane().getLayout();
@@ -89,10 +89,10 @@ public class Screen extends JFrame
         return deleteGame;
     }
 
-    //public ConfirmationPanel getConfirmationPanel()
-    //{
-    //    return confirmationPanel;
-    //}
+    public ConfirmationPanel getConfirmationPanel()
+    {
+        return confirmationPanel;
+    }
 
 
 }

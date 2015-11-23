@@ -15,6 +15,8 @@ public class Play extends JPanel {
     private JButton btnPlay;
     private JButton btnCancel;
 
+    private String Moves;
+
     public Play()
     {
         setLayout(null);
@@ -61,8 +63,17 @@ public class Play extends JPanel {
         return btnCancel;
     }
 
-    public void addActionListener(ActionListener l)
+    public String gettxtMove()
     {
+        Moves = txtMove.getText();
+        return Moves;
+    }
+    /**
+    public void settxtMoves(String Moves) {
+        this.Moves = Moves;
+    } */
+
+     public void addActionListener(ActionListener l) {
         btnPlay.addActionListener(l);
         btnCancel.addActionListener(l);
     }

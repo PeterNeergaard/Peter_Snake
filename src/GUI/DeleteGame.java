@@ -17,7 +17,7 @@ public class DeleteGame extends JPanel
     private JButton btnDeleteGame;
     private JButton btnCancel;
 
-    private String deleteUser;
+    private String gameID;
 
     public DeleteGame()
     {
@@ -66,16 +66,7 @@ public class DeleteGame extends JPanel
         txtDeleteGame.setText("");
     }
 
-   // public int getTxtDeleteGame()
-   // {
-        //int gameId = txtDeleteGame.getText();
-     //   return gameId;
-  //  }
 
-    //public void settxtDeleteUser(String DeleteUser)
-    //{
-    //    this.deleteUser = DeleteUser;
-    //}
 
     public JButton getBtnDeleteGame()
     {
@@ -86,6 +77,17 @@ public class DeleteGame extends JPanel
     {
         return btnCancel;
     }
+
+    public String gettxtDelete()
+    {
+        gameID = txtDeleteGame.getText();
+        return gameID;
+    }
+
+    //public void settxtDeleteUser(String DeleteUser)
+    //{
+    //    this.deleteUser = DeleteUser;
+    //}
 
     public void addActionListener(ActionListener l)
     {

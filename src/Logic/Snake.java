@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class Snake {
     // Opretter objekter af de forskellige klasser
-    public Screen screen;
+    private Screen screen;
 
 
     public Snake() {
@@ -27,6 +27,7 @@ public class Snake {
         screen.getPlay().addActionListener(new PlayActionListener());
         screen.getHighScore().addActionListener(new HighScoreActionListener());
         screen.getDeleteGame().addActionListener(new DeleteActionListener());
+        screen.getConfirmationPanel().addActionListener(new ConfirmationPanelActionListener());
 
         screen.show(Screen.WELCOME);
     }
@@ -87,8 +88,8 @@ public class Snake {
                 // Actions hvis man klikker på Submit knappen
                 if (e.getSource() == screen.getPlay().getBtnPlay())
                 {
-
-                    screen.show(Screen.USERMENU);
+                    screen.getConfirmationPanel().showPlay(screen.play.gettxtMove());
+                    screen.show(Screen.CONFIRMATION);
                     screen.getPlay().clearPlay();
 
                 }
@@ -109,8 +110,8 @@ public class Snake {
             // Actions hvis man klikker på delete knappen
             if (e.getSource() == screen.getDeleteGame().getBtnDeleteGame())
             {
-
-                screen.show(Screen.USERMENU);
+                screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
+                screen.show(Screen.CONFIRMATION);
                 screen.getDeleteGame().clearDeleteGame();
 
             }
@@ -134,6 +135,16 @@ public class Snake {
                 screen.show(Screen.USERMENU);
 
             }
+        }
+    }
+
+    private class ConfirmationPanelActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            if (e.getSource() == screen.getConfirmationPanel().getBtnOk());
+            screen.show(Screen.USERMENU);
         }
     }
 
