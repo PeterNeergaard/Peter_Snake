@@ -37,7 +37,7 @@ public class Screen extends JFrame
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
-        // Hvor komponenterne som kontrollers af cardLayout er instantieret
+        // komponenterne som kontrollers af cardLayout er instantieret
         welcome = new Welcome();
         userMenu = new UserMenu();
         play = new Play();

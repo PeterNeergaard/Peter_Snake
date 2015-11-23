@@ -1,4 +1,4 @@
-package Logic;
+package sdk;
 
 /**
  * Created by Peter on 19/11/15.
@@ -8,12 +8,12 @@ import GUI.Screen;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Snake {
+public class Logic {
     // Opretter objekter af de forskellige klasser
     private Screen screen;
 
 
-    public Snake() {
+    public Logic() {
         // instantierer følgende variablerene
         screen = new Screen();
         screen.setVisible(true);
@@ -122,13 +122,13 @@ public class Snake {
             }
         }
     }
-
+    // High score ActionListener
     private class HighScoreActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            // Actions hvis man klikker på delete knappen
+            // Actions hvis man klikker på tilbage knappen
             if (e.getSource() == screen.getHighScore().getBtnBack())
             {
 
@@ -147,8 +147,5 @@ public class Snake {
             screen.show(Screen.USERMENU);
         }
     }
-
-
-
 
 }

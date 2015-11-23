@@ -14,8 +14,7 @@ public class ConfirmationPanel extends JPanel
     private JLabel lblTitle;
     private JLabel lblFirst;
     private JLabel lblSecond;
-    private JLabel lblThird;
-    private JLabel lblKlikOk;
+    private JLabel lblOk;
     private JButton btnOk;
 
     public ConfirmationPanel () {
@@ -47,9 +46,9 @@ public class ConfirmationPanel extends JPanel
         btnOk = new JButton("OK");
         add(btnOk);
 
-        lblKlikOk = new JLabel("Press \"OK\" to return to the main menu");
-        lblKlikOk.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
-        add(lblKlikOk);
+        lblOk = new JLabel("Press \"OK\" to return to the main menu");
+        lblOk.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+        add(lblOk);
 
     }
 
@@ -63,7 +62,7 @@ public class ConfirmationPanel extends JPanel
         lblSecond.setText("Wait until someone challenges you to see if you win");
         lblSecond.setBounds(31, 148, 338, 22);
         btnOk.setBounds(206, 182, 117, 29);
-        lblKlikOk.setBounds(162, 210, 205, 16);
+        lblOk.setBounds(162, 210, 205, 16);
     }
 
     public void showDelete(String gameID)
@@ -76,7 +75,7 @@ public class ConfirmationPanel extends JPanel
         lblSecond.setText("");
         lblSecond.setBounds(31, 148, 338, 22);
         btnOk.setBounds(206, 182, 117, 29);
-        lblKlikOk.setBounds(162, 210, 205, 16);
+        lblOk.setBounds(162, 210, 205, 16);
     }
 
     public JButton getBtnOk()
