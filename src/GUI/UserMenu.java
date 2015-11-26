@@ -16,6 +16,7 @@ public class UserMenu extends JPanel {
     private JButton btnHighscore;
     private JButton btnDelete;
     private JButton btnLogOut;
+    private JButton btnJoinGame;
 
     public UserMenu()
     {
@@ -30,29 +31,33 @@ public class UserMenu extends JPanel {
         add(lblHeader);
 
         lblPeterClient = new JLabel("Welcome to Peters client");
-        lblPeterClient.setBounds(184, 78, 162, 16);
+        lblPeterClient.setBounds(183, 62, 162, 16);
         add(lblPeterClient);
 
         separator = new JSeparator();
-        separator.setBounds(6, 106, 524, 16);
+        separator.setBounds(6, 90, 524, 16);
         add(separator);
 
         btnPlay = new JButton("Play");
-        btnPlay.setBounds(164, 157, 196, 38);
+        btnPlay.setBounds(164, 104, 196, 38);
         add(btnPlay);
 
         btnHighscore = new JButton("Highscore");
-        btnHighscore.setBounds(164, 195, 196, 38);
+        btnHighscore.setBounds(164, 184, 196, 38);
         add(btnHighscore);
 
         btnDelete = new JButton("Delete Game");
-        btnDelete.setBounds(164, 235, 196, 38);
+        btnDelete.setBounds(164, 225, 196, 38);
         add(btnDelete);
 
         btnLogOut = new JButton("Log out");
         btnLogOut.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
-        btnLogOut.setBounds(6, 265, 76, 29);
+        btnLogOut.setBounds(6, 265, 79, 29);
         add(btnLogOut);
+
+        btnJoinGame = new JButton("Join Game");
+        btnJoinGame.setBounds(164, 145, 196, 38);
+        add(btnJoinGame);
     }
 
     public JLabel getPeterClient()
@@ -63,6 +68,11 @@ public class UserMenu extends JPanel {
     public JButton getBtnPlay()
     {
         return btnPlay;
+    }
+
+    public JButton getBtnJoinGame()
+    {
+        return btnJoinGame;
     }
 
     public JButton getBtnHighscore()
@@ -86,6 +96,7 @@ public class UserMenu extends JPanel {
         btnHighscore.addActionListener(l);
         btnDelete.addActionListener(l);
         btnLogOut.addActionListener(l);
+        btnJoinGame.addActionListener(l);
     }
 
 }

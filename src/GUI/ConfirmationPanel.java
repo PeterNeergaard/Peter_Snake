@@ -65,6 +65,19 @@ public class ConfirmationPanel extends JPanel
         lblOk.setBounds(162, 210, 205, 16);
     }
 
+    public void showJoinGame(String Moves, String gameID)
+    {
+        lblHeader.setBounds(230, 56, 186, 31);
+        lblHeader.setText("Play");
+        lblTitle.setText("Success!");
+        lblFirst.setText("You battled the owner og game: "+gameID);
+        lblFirst.setBounds(135, 126, 468, 22);
+        lblSecond.setText("With the moves: "+Moves);
+        lblSecond.setBounds(135, 148, 338, 22);
+        btnOk.setBounds(206, 182, 117, 29);
+        lblOk.setBounds(162, 210, 205, 16);
+    }
+
     public void showDelete(String gameID)
     {
         lblHeader.setBounds(200, 56, 186, 31);

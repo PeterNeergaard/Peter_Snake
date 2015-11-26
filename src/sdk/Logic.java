@@ -7,7 +7,6 @@ import GUI.Screen;
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.ClientResponse;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,10 +26,10 @@ public class Logic {
 
     public void run() {
         // ActionListiners der refererer til alle de klasserne fra UI
-
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
         screen.getPlay().addActionListener(new PlayActionListener());
+        screen.getJoingame().addActionListener(new JoinGameActionListener());
         screen.getHighScore().addActionListener(new HighScoreActionListener());
         screen.getDeleteGame().addActionListener(new DeleteActionListener());
         screen.getConfirmationPanel().addActionListener(new ConfirmationPanelActionListener());
@@ -62,21 +61,23 @@ public class Logic {
 
                 if (response.getStatus() == 200) {
                     authenticated = true;
-                    System.out.println("User Validated");
-                    JOptionPane.showMessageDialog(screen, "Succesfull login");
+                    System.out.println("User found");
+                    screen.getWelcome().getWrongUser().setVisible(false);
+                    screen.getWelcome().getError().setVisible(false);
                     screen.show(Screen.USERMENU);
                 }
                 if (response.getStatus() == 500) {
                     authenticated = false;
                     System.out.println("bad request");
-                    JOptionPane.showMessageDialog(screen, "The request could not be understood by the server due to malformed syntax");
+                    screen.getWelcome().getError().setVisible(true);
                     screen.show(Screen.WELCOME);
                 }
 
-                if (response.getStatus() == 401) {
+                if (response.getStatus() == 400) {
                     authenticated = false;
                     System.out.println("Unauthorized");
-                    JOptionPane.showMessageDialog(screen, "Wrong User");
+                    screen.getWelcome().getError().setVisible(false);
+                    screen.getWelcome().getWrongUser().setVisible(true);
                     screen.show(Screen.WELCOME);
                 }
 
@@ -100,6 +101,10 @@ public class Logic {
             {
                 screen.show(Screen.PLAY);
             }
+            else if (e.getSource() == screen.getUserMenu().getBtnJoinGame())
+            {
+                screen.show(Screen.JOINGAME);
+            }
             else if (e.getSource() == screen.getUserMenu().getBtnHighscore())
             {
                 screen.show(Screen.HIGHSCORE);
@@ -111,6 +116,9 @@ public class Logic {
             else if (e.getSource() == screen.getUserMenu().getBtnLogOut())
             {
                 screen.show(Screen.WELCOME);
+                screen.getWelcome().clearUserName();
+                screen.getWelcome().clearPassword();
+
             }
         }
     }
@@ -134,6 +142,30 @@ public class Logic {
                     screen.show(Screen.USERMENU);
                     screen.getPlay().clearPlay();
                 }
+        }
+    }
+
+    private class JoinGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // Actions hvis man klikker på play knappen
+            if (e.getSource() == screen.getJoingame().getBtnPlay())
+            {
+                screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameID());
+                screen.show(Screen.CONFIRMATION);
+                screen.getJoingame().clearGameID();
+                screen.getJoingame().clearMoves();
+
+            }
+            else if (e.getSource() == screen.getJoingame().getBtnCancel())
+            {
+                screen.show(Screen.USERMENU);
+                screen.getJoingame().clearGameID();
+                screen.getJoingame().clearMoves();
+
+            }
         }
     }
 

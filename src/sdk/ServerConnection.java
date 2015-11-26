@@ -35,7 +35,6 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
         System.out.println(output);
 
-
     }
 
     public ClientResponse post(String json, String path){

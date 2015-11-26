@@ -19,6 +19,7 @@ public class Welcome extends JPanel {
     private JButton btnQuit;
     private JPasswordField passwordField;
     private JLabel wrongUser;
+    private JLabel error;
 
     private String userName;
     private String password;
@@ -64,6 +65,23 @@ public class Welcome extends JPanel {
         wrongUser.setBounds(117, 197, 295, 31);
         wrongUser.setVisible(false);
         add(wrongUser);
+
+        error = new JLabel("Error, please try again");
+        error.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+        error.setForeground(Color.RED);
+        error.setBounds(200, 197, 295, 31);
+        error.setVisible(false);
+        add(error);
+    }
+
+
+    public JLabel getWrongUser()
+    {
+        return wrongUser;
+    }
+
+    public JLabel getError() {
+        return error;
     }
 
     // Get Brugernavn
@@ -83,7 +101,6 @@ public class Welcome extends JPanel {
     }
 
     // Get password
-    @SuppressWarnings("deprecation")
     public String getPassword()
     {
         password = passwordField.getText();
