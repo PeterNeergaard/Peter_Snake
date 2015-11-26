@@ -4,18 +4,24 @@ package sdk;
  * Created by Peter on 19/11/15.
  */
 import GUI.Screen;
+import com.google.gson.Gson;
+import com.sun.jersey.api.client.ClientResponse;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class Logic {
     // Opretter objekter af de forskellige klasser
     private Screen screen;
+    private ServerConnection serverConnection;
 
 
     public Logic() {
         // instantierer følgende variablerene
         screen = new Screen();
+        serverConnection = new ServerConnection();
         screen.setVisible(true);
     }
 
@@ -35,17 +41,47 @@ public class Logic {
     // Welcome ActionListener
     private class WelcomeActionListener implements ActionListener
     {
+        boolean authenticated = false;
         @Override
         public void actionPerformed(ActionEvent e)
         {
             if (e.getSource() == screen.getWelcome().getBtnLogin())
             {
-                screen.show(Screen.USERMENU);
-                /**if(auth())
-                {
-                    logIn();
-                }**/
+                String username = screen.getWelcome().getUserName();
+                String password = screen.getWelcome().getPassword();
+
+                User user = new User();
+
+                user.setUsername(username);
+                user.setPassword(password);
+
+                String json = new Gson().toJson(user);
+
+                ServerConnection con = new ServerConnection();
+                ClientResponse response = con.post(json, "login");
+
+                if (response.getStatus() == 200) {
+                    authenticated = true;
+                    System.out.println("User Validated");
+                    JOptionPane.showMessageDialog(screen, "Succesfull login");
+                    screen.show(Screen.USERMENU);
+                }
+                if (response.getStatus() == 500) {
+                    authenticated = false;
+                    System.out.println("bad request");
+                    JOptionPane.showMessageDialog(screen, "The request could not be understood by the server due to malformed syntax");
+                    screen.show(Screen.WELCOME);
+                }
+
+                if (response.getStatus() == 401) {
+                    authenticated = false;
+                    System.out.println("Unauthorized");
+                    JOptionPane.showMessageDialog(screen, "Wrong User");
+                    screen.show(Screen.WELCOME);
+                }
+
             }
+
             else if (e.getSource() == screen.getWelcome().getBtnQuit())
             {
                 System.exit(0);
@@ -147,5 +183,10 @@ public class Logic {
             screen.show(Screen.USERMENU);
         }
     }
+
+
+
+
+
 
 }

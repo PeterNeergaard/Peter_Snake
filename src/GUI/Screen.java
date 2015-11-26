@@ -18,12 +18,12 @@ public class Screen extends JFrame
     public static final String DELETEGAME = "deletegame1234";
     public static final String CONFIRMATION = "confimationPanel1234";
 
-    private Welcome welcome;
-    private UserMenu userMenu;
+    public Welcome welcome;
+    public UserMenu userMenu;
     public Play play;
-    private HighScore highScore;
+    public HighScore highScore;
     public DeleteGame deleteGame;
-    private ConfirmationPanel confirmationPanel;
+    public ConfirmationPanel confirmationPanel;
 
     private JPanel contentPane;
     private CardLayout c;
