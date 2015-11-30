@@ -52,14 +52,14 @@ public class ConfirmationPanel extends JPanel
 
     }
 
-    public void showPlay(String Moves)
+    public void showPlay(String Name, String Moves)
     {
         lblHeader.setBounds(230, 56, 186, 31);
         lblHeader.setText("Play");
         lblTitle.setText("Success!");
-        lblFirst.setText("You played with the moves: "+Moves);
+        lblFirst.setText("You created the game: "+Name);
         lblFirst.setBounds(31, 126, 468, 22);
-        lblSecond.setText("Wait until someone challenges you to see if you win");
+        lblSecond.setText("The moves you submitted are: "+Moves);
         lblSecond.setBounds(31, 148, 338, 22);
         btnOk.setBounds(206, 182, 117, 29);
         lblOk.setBounds(162, 210, 205, 16);

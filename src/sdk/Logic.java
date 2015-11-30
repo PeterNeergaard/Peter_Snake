@@ -15,6 +15,7 @@ public class Logic {
     // Opretter objekter af de forskellige klasser
     private Screen screen;
     private ServerConnection serverConnection;
+    private User user;
 
 
     public Logic() {
@@ -49,7 +50,7 @@ public class Logic {
                 String username = screen.getWelcome().getUserName();
                 String password = screen.getWelcome().getPassword();
 
-                User user = new User();
+                user = new User();
 
                 user.setUsername(username);
                 user.setPassword(password);
@@ -80,7 +81,6 @@ public class Logic {
                     screen.getWelcome().getWrongUser().setVisible(true);
                     screen.show(Screen.WELCOME);
                 }
-
             }
 
             else if (e.getSource() == screen.getWelcome().getBtnQuit())
@@ -89,7 +89,6 @@ public class Logic {
             }
         }
     }
-
 
     //UserMenu ActionListener
     private class UserMenuActionListener implements ActionListener
@@ -118,7 +117,6 @@ public class Logic {
                 screen.show(Screen.WELCOME);
                 screen.getWelcome().clearUserName();
                 screen.getWelcome().clearPassword();
-
             }
         }
     }
@@ -132,10 +130,32 @@ public class Logic {
                 // Actions hvis man klikker på Submit knappen
                 if (e.getSource() == screen.getPlay().getBtnPlay())
                 {
-                    screen.getConfirmationPanel().showPlay(screen.play.gettxtMove());
+                    Gamer host = new Gamer();
+                    host.setId(user.getId());
+                    host.setControls(screen.getPlay().gettxtMove());
+
+                    Game game = new Game();
+                    game.setName(screen.getPlay().gettxtName());
+                    game.setHost(host);
+                    game.setMapSize(20);
+
+                    String json = new Gson().toJson(game);
+
+                    ServerConnection con = new ServerConnection();
+                    ClientResponse response = con.post(json, "games");
+
+                    if (response.getStatus() == 201) {
+                        System.out.println("Game created");
+
+                    }
+                    if (response.getStatus() == 400) {
+                        System.out.println("bad request");
+
+                    }
+
+                    screen.getConfirmationPanel().showPlay(screen.play.gettxtName(), screen.play.gettxtMove());
                     screen.show(Screen.CONFIRMATION);
                     screen.getPlay().clearPlay();
-
                 }
                 else if (e.getSource() == screen.getPlay().getBtnCancel())
                 {
@@ -157,14 +177,12 @@ public class Logic {
                 screen.show(Screen.CONFIRMATION);
                 screen.getJoingame().clearGameID();
                 screen.getJoingame().clearMoves();
-
             }
             else if (e.getSource() == screen.getJoingame().getBtnCancel())
             {
                 screen.show(Screen.USERMENU);
                 screen.getJoingame().clearGameID();
                 screen.getJoingame().clearMoves();
-
             }
         }
     }
@@ -199,9 +217,7 @@ public class Logic {
             // Actions hvis man klikker på tilbage knappen
             if (e.getSource() == screen.getHighScore().getBtnBack())
             {
-
                 screen.show(Screen.USERMENU);
-
             }
         }
     }
@@ -215,10 +231,5 @@ public class Logic {
             screen.show(Screen.USERMENU);
         }
     }
-
-
-
-
-
 
 }

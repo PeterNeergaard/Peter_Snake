@@ -28,7 +28,7 @@ public class Welcome extends JPanel {
         setLayout(null);
         setBackground(new Color(247, 247, 243));
         setBounds(100, 100, 530, 306);
-        lblTitle = new JLabel("Welcome to snake");
+        lblTitle = new JLabel("Welcome to Snake");
         lblTitle.setForeground(new Color(73, 103, 170));
         lblTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
         lblTitle.setBounds(151, 40, 228, 31);
