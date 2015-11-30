@@ -2,7 +2,6 @@ package sdk;
 
 import java.sql.Date;
 
-
 /**
  * Created by Oscar on 12-10-2015.
  * OBS! fra serveren

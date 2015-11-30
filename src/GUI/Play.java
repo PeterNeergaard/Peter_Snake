@@ -79,13 +79,13 @@ public class Play extends JPanel {
         return btnCancel;
     }
 
-    public String gettxtMove()
+    public String getMoves()
     {
         Moves = txtMove.getText();
         return Moves;
     }
 
-    public String gettxtName() {
+    public String getName() {
         Name = txtName.getText();
         return Name;
     }

@@ -15,7 +15,7 @@ public class Logic {
     // Opretter objekter af de forskellige klasser
     private Screen screen;
     private ServerConnection serverConnection;
-    private User user;
+    private User currentUser;
 
 
     public Logic() {
@@ -50,12 +50,12 @@ public class Logic {
                 String username = screen.getWelcome().getUserName();
                 String password = screen.getWelcome().getPassword();
 
-                user = new User();
+                currentUser = new User();
 
-                user.setUsername(username);
-                user.setPassword(password);
+                currentUser.setUsername(username);
+                currentUser.setPassword(password);
 
-                String json = new Gson().toJson(user);
+                String json = new Gson().toJson(currentUser);
 
                 ServerConnection con = new ServerConnection();
                 ClientResponse response = con.post(json, "login");
@@ -131,11 +131,11 @@ public class Logic {
                 if (e.getSource() == screen.getPlay().getBtnPlay())
                 {
                     Gamer host = new Gamer();
-                    host.setId(user.getId());
-                    host.setControls(screen.getPlay().gettxtMove());
+                    host.setId(currentUser.getId());
+                    host.setControls(screen.getPlay().getMoves());
 
                     Game game = new Game();
-                    game.setName(screen.getPlay().gettxtName());
+                    game.setName(screen.getPlay().getName());
                     game.setHost(host);
                     game.setMapSize(20);
 
@@ -146,16 +146,17 @@ public class Logic {
 
                     if (response.getStatus() == 201) {
                         System.out.println("Game created");
+                        screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
+                        screen.show(Screen.CONFIRMATION);
+                        screen.getPlay().clearPlay();
+                        screen.getPlay().clearName();
 
                     }
                     if (response.getStatus() == 400) {
-                        System.out.println("bad request");
+                        System.out.println("Something went wrong");
 
                     }
 
-                    screen.getConfirmationPanel().showPlay(screen.play.gettxtName(), screen.play.gettxtMove());
-                    screen.show(Screen.CONFIRMATION);
-                    screen.getPlay().clearPlay();
                 }
                 else if (e.getSource() == screen.getPlay().getBtnCancel())
                 {
@@ -173,6 +174,13 @@ public class Logic {
             // Actions hvis man klikker på play knappen
             if (e.getSource() == screen.getJoingame().getBtnPlay())
             {
+                Gamer opponent = new Gamer();
+                opponent.setId(currentUser.getId());
+                opponent.setControls(screen.getJoingame().getMoves());
+
+
+
+
                 screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameID());
                 screen.show(Screen.CONFIRMATION);
                 screen.getJoingame().clearGameID();
