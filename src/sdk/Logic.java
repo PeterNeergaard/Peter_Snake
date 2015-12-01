@@ -66,7 +66,9 @@ public class Logic {
                     screen.getWelcome().getWrongUser().setVisible(false);
                     screen.getWelcome().getError().setVisible(false);
                     screen.show(Screen.USERMENU);
+
                 }
+
                 if (response.getStatus() == 500) {
                     authenticated = false;
                     System.out.println("bad request");
@@ -146,6 +148,7 @@ public class Logic {
 
                     if (response.getStatus() == 201) {
                         System.out.println("Game created");
+
                         screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
                         screen.show(Screen.CONFIRMATION);
                         screen.getPlay().clearPlay();
@@ -178,10 +181,30 @@ public class Logic {
                 opponent.setId(currentUser.getId());
                 opponent.setControls(screen.getJoingame().getMoves());
 
+                Game game = new Game();
+                game.setOpponent(opponent);
+                game.setGameId(screen.getJoingame().getIntGameId());
 
+                String json = new Gson().toJson(game);
 
+                ServerConnection con = new ServerConnection();
+                ClientResponse response = con.post(json, "games/join/");
 
-                screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameID());
+                if (response.getStatus() == 201) {
+                    System.out.println("Game joined");
+
+                    screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
+                    screen.show(Screen.CONFIRMATION);
+                    screen.getPlay().clearPlay();
+                    screen.getPlay().clearName();
+
+                }
+                if (response.getStatus() == 400) {
+                    System.out.println("Something went wrong");
+
+                 }
+
+                screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());
                 screen.show(Screen.CONFIRMATION);
                 screen.getJoingame().clearGameID();
                 screen.getJoingame().clearMoves();
@@ -202,13 +225,23 @@ public class Logic {
         public void actionPerformed(ActionEvent e) {
 
             // Actions hvis man klikker på delete knappen
-            if (e.getSource() == screen.getDeleteGame().getBtnDeleteGame())
-            {
-                screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
-                screen.show(Screen.CONFIRMATION);
-                screen.getDeleteGame().clearDeleteGame();
+            if (e.getSource() == screen.getDeleteGame().getBtnDeleteGame()) {
 
+                String gameId = screen.getDeleteGame().gettxtDelete();
+
+                boolean success = serverConnection.deleteGame(gameId);
+                if (success) {
+                        screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
+                        screen.show(Screen.CONFIRMATION);
+                        screen.getDeleteGame().clearDeleteGame();
+
+                }
+                else {
+                    System.out.println("fail");
+
+                }
             }
+
             else if (e.getSource() == screen.getDeleteGame().getBtnCancel())
             {
                 screen.show(Screen.USERMENU);
@@ -230,14 +263,14 @@ public class Logic {
         }
     }
 
-    private class ConfirmationPanelActionListener implements ActionListener
-    {
+    private class ConfirmationPanelActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e)
-        {
-            if (e.getSource() == screen.getConfirmationPanel().getBtnOk());
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == screen.getConfirmationPanel().getBtnOk()) ;
             screen.show(Screen.USERMENU);
         }
     }
 
+
 }
+

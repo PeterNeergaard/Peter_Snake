@@ -4,7 +4,7 @@ import java.sql.Date;
 
 /**
  * Created by Oscar on 12-10-2015.
- * OBS! fra serveren
+ * OBS! Fra serveren
  */
 //
 public class User {

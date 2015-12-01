@@ -77,12 +77,6 @@ public class DeleteGame extends JPanel
         return btnCancel;
     }
 
-    public int getIntDelete()
-    {
-        int gameId = Integer.parseInt(txtDeleteGame.getText());
-        return gameId;
-    }
-
     public String gettxtDelete()
     {
         String gameId = txtDeleteGame.getText();

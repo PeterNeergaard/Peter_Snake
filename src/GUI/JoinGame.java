@@ -67,10 +67,15 @@ public class JoinGame extends JPanel
 
 
     // GameID
-    public String getGameID()
+    public String getGameId()
     {
         gameID = txtGameID.getText();
         return gameID;
+    }
+    public int getIntGameId()
+    {
+        int gameId = Integer.parseInt(txtGameID.getText());
+        return gameId;
     }
 
     public void clearGameID()
