@@ -4,8 +4,6 @@ package sdk;
  * Created by Peter on 19/11/15.
  */
 import GUI.Screen;
-import com.google.gson.Gson;
-import com.sun.jersey.api.client.ClientResponse;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +28,7 @@ public class Logic {
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
         screen.getPlay().addActionListener(new PlayActionListener());
-        screen.getJoingame().addActionListener(new JoinGameActionListener());
+        //screen.getJoingame().addActionListener(new JoinGameActionListener());
         screen.getHighScore().addActionListener(new HighScoreActionListener());
         screen.getDeleteGame().addActionListener(new DeleteActionListener());
         screen.getConfirmationPanel().addActionListener(new ConfirmationPanelActionListener());
@@ -41,63 +39,38 @@ public class Logic {
     // Welcome ActionListener
     private class WelcomeActionListener implements ActionListener
     {
-        boolean authenticated = false;
         @Override
-        public void actionPerformed(ActionEvent e)
-        {
-            if (e.getSource() == screen.getWelcome().getBtnLogin())
-            {
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == screen.getWelcome().getBtnLogin()) {
                 String username = screen.getWelcome().getUserName();
                 String password = screen.getWelcome().getPassword();
 
                 currentUser = new User();
-
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
 
-                String json = new Gson().toJson(currentUser);
+                currentUser = serverConnection.logIn(currentUser);
 
-                ServerConnection con = new ServerConnection();
-                ClientResponse response = con.post(json, "login");
-
-                if (response.getStatus() == 200) {
-                    authenticated = true;
-                    System.out.println("User found");
+                if (currentUser != null) {
+                    screen.show(screen.USERMENU);
                     screen.getWelcome().getWrongUser().setVisible(false);
                     screen.getWelcome().getError().setVisible(false);
-                    screen.show(Screen.USERMENU);
-
+                    System.out.println(currentUser.getId());
                 }
 
-                if (response.getStatus() == 500) {
-                    authenticated = false;
-                    System.out.println("bad request");
-                    screen.getWelcome().getError().setVisible(true);
-                    screen.show(Screen.WELCOME);
-                }
-
-                if (response.getStatus() == 400) {
-                    authenticated = false;
-                    System.out.println("Unauthorized");
-                    screen.getWelcome().getError().setVisible(false);
+                if (currentUser == null) {
                     screen.getWelcome().getWrongUser().setVisible(true);
-                    screen.show(Screen.WELCOME);
                 }
-            }
-
-            else if (e.getSource() == screen.getWelcome().getBtnQuit())
-            {
+            } else if (e.getSource() == screen.getWelcome().getBtnQuit()) {
                 System.exit(0);
             }
         }
     }
 
     //UserMenu ActionListener
-    private class UserMenuActionListener implements ActionListener
-    {
+    private class UserMenuActionListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e)
-        {
+        public void actionPerformed(ActionEvent e) {
             if (e.getSource() == screen.getUserMenu().getBtnPlay())
             {
                 screen.show(Screen.PLAY);
@@ -108,6 +81,8 @@ public class Logic {
             }
             else if (e.getSource() == screen.getUserMenu().getBtnHighscore())
             {
+                Score[] highScores = serverConnection.highScore();
+                screen.getHighScore().HighScoreTable(highScores);
                 screen.show(Screen.HIGHSCORE);
             }
             else if (e.getSource() == screen.getUserMenu().getBtnDelete())
@@ -122,6 +97,7 @@ public class Logic {
             }
         }
     }
+
 
     // Play ActionListener
     private class PlayActionListener implements ActionListener
@@ -141,24 +117,12 @@ public class Logic {
                     game.setHost(host);
                     game.setMapSize(20);
 
-                    String json = new Gson().toJson(game);
-
-                    ServerConnection con = new ServerConnection();
-                    ClientResponse response = con.post(json, "games");
-
-                    if (response.getStatus() == 201) {
-                        System.out.println("Game created");
+                    serverConnection.playGame(game);
 
                         screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
                         screen.show(Screen.CONFIRMATION);
                         screen.getPlay().clearPlay();
                         screen.getPlay().clearName();
-
-                    }
-                    if (response.getStatus() == 400) {
-                        System.out.println("Something went wrong");
-
-                    }
 
                 }
                 else if (e.getSource() == screen.getPlay().getBtnCancel())
@@ -169,7 +133,7 @@ public class Logic {
         }
     }
 
-    private class JoinGameActionListener implements ActionListener
+    /**private class JoinGameActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -216,7 +180,7 @@ public class Logic {
                 screen.getJoingame().clearMoves();
             }
         }
-    }
+    }*/
 
     // Delete ActionListener
     private class DeleteActionListener implements ActionListener
@@ -234,14 +198,11 @@ public class Logic {
                         screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
                         screen.show(Screen.CONFIRMATION);
                         screen.getDeleteGame().clearDeleteGame();
-
                 }
                 else {
                     System.out.println("fail");
-
                 }
             }
-
             else if (e.getSource() == screen.getDeleteGame().getBtnCancel())
             {
                 screen.show(Screen.USERMENU);

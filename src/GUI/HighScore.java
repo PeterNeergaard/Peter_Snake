@@ -3,7 +3,11 @@ package GUI;
 /**
  * Created by Peter on 19/11/15.
  */
+
+import sdk.Score;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
@@ -14,6 +18,7 @@ public class HighScore extends JPanel
     //private JTable table;
     private JButton btnBack;
     private JLabel lblHeader;
+    private JTable highScore;
 
     // konstruktør der instantierer variablene
     public HighScore()
@@ -22,9 +27,10 @@ public class HighScore extends JPanel
         setBounds(100, 100, 530, 350);
         setBackground(new Color(247, 247, 243));
 
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(78, 56, 373, 207);
-        add(scrollPane);
+        highScore = new JTable(new DefaultTableModel(new Object[]{"username", "score"}, 0));
+        highScore.setBounds(78, 56, 373, 207);
+        add(highScore);
+
         lblHeader  = new JLabel("Highscores");
         lblHeader.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
         lblHeader.setForeground(new Color(73, 103, 170));
@@ -47,5 +53,13 @@ public class HighScore extends JPanel
         btnBack.addActionListener(l);
 
     }
+    public void HighScoreTable(Score[] scores) {
+        DefaultTableModel model = (DefaultTableModel) highScore.getModel();
+
+        for(Score score : scores) {
+            model.addRow(new Object[]{score.getUser().getUsername(), score.getScore()});
+        }
+    }
+
 }
 
