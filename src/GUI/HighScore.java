@@ -5,7 +5,6 @@ package GUI;
  */
 
 import sdk.Score;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -18,7 +17,7 @@ public class HighScore extends JPanel
     //private JTable table;
     private JButton btnBack;
     private JLabel lblHeader;
-    private JTable highScore;
+    private JTable highScoreTable;
 
     // konstruktør der instantierer variablene
     public HighScore()
@@ -27,9 +26,13 @@ public class HighScore extends JPanel
         setBounds(100, 100, 530, 350);
         setBackground(new Color(247, 247, 243));
 
-        highScore = new JTable(new DefaultTableModel(new Object[]{"username", "score"}, 0));
-        highScore.setBounds(78, 56, 373, 207);
-        add(highScore);
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(78, 56, 373, 207);
+        add(scrollPane);
+
+        highScoreTable = new JTable(new DefaultTableModel(new Object[]{"Username", "GameId", "Score"}, 0));
+        scrollPane.setViewportView(highScoreTable);
+
 
         lblHeader  = new JLabel("Highscores");
         lblHeader.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
@@ -54,11 +57,16 @@ public class HighScore extends JPanel
 
     }
     public void HighScoreTable(Score[] scores) {
-        DefaultTableModel model = (DefaultTableModel) highScore.getModel();
+        DefaultTableModel model = (DefaultTableModel) highScoreTable.getModel();
 
         for(Score score : scores) {
-            model.addRow(new Object[]{score.getUser().getUsername(), score.getScore()});
+            model.addRow(new Object[]{score.getUser().getUsername(), score.getGame().getGameId(), score.getScore()});
         }
+    }
+
+    public void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) highScoreTable.getModel();
+        model.setRowCount(0);
     }
 
 }

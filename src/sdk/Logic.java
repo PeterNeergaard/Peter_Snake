@@ -21,6 +21,7 @@ public class Logic {
         screen = new Screen();
         serverConnection = new ServerConnection();
         screen.setVisible(true);
+
     }
 
     public void run() {
@@ -28,7 +29,7 @@ public class Logic {
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
         screen.getPlay().addActionListener(new PlayActionListener());
-        //screen.getJoingame().addActionListener(new JoinGameActionListener());
+        screen.getJoingame().addActionListener(new JoinGameActionListener());
         screen.getHighScore().addActionListener(new HighScoreActionListener());
         screen.getDeleteGame().addActionListener(new DeleteActionListener());
         screen.getConfirmationPanel().addActionListener(new ConfirmationPanelActionListener());
@@ -82,8 +83,9 @@ public class Logic {
             else if (e.getSource() == screen.getUserMenu().getBtnHighscore())
             {
                 Score[] highScores = serverConnection.highScore();
-                screen.getHighScore().HighScoreTable(highScores);
                 screen.show(Screen.HIGHSCORE);
+                screen.getHighScore().HighScoreTable(highScores);
+
             }
             else if (e.getSource() == screen.getUserMenu().getBtnDelete())
             {
@@ -133,7 +135,7 @@ public class Logic {
         }
     }
 
-    /**private class JoinGameActionListener implements ActionListener
+    private class JoinGameActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -141,37 +143,32 @@ public class Logic {
             // Actions hvis man klikker på play knappen
             if (e.getSource() == screen.getJoingame().getBtnPlay())
             {
+                int gameId = screen.getJoingame().getIntGameId();
+
                 Gamer opponent = new Gamer();
                 opponent.setId(currentUser.getId());
                 opponent.setControls(screen.getJoingame().getMoves());
 
                 Game game = new Game();
                 game.setOpponent(opponent);
-                game.setGameId(screen.getJoingame().getIntGameId());
+                game.setGameId(gameId);
 
-                String json = new Gson().toJson(game);
+                System.out.println(game.getGameId());
+                System.out.println(opponent.getControls());
 
-                ServerConnection con = new ServerConnection();
-                ClientResponse response = con.post(json, "games/join/");
+                boolean success = serverConnection.joinGame(game);
 
-                if (response.getStatus() == 201) {
-                    System.out.println("Game joined");
-
-                    screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
+                if (success) {
+                    screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());
                     screen.show(Screen.CONFIRMATION);
-                    screen.getPlay().clearPlay();
-                    screen.getPlay().clearName();
-
+                    screen.getJoingame().clearGameID();
+                    screen.getJoingame().clearMoves();
                 }
-                if (response.getStatus() == 400) {
-                    System.out.println("Something went wrong");
+                else {
+                    System.out.println("fail");
+                }
 
-                 }
 
-                screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());
-                screen.show(Screen.CONFIRMATION);
-                screen.getJoingame().clearGameID();
-                screen.getJoingame().clearMoves();
             }
             else if (e.getSource() == screen.getJoingame().getBtnCancel())
             {
@@ -180,7 +177,7 @@ public class Logic {
                 screen.getJoingame().clearMoves();
             }
         }
-    }*/
+    }
 
     // Delete ActionListener
     private class DeleteActionListener implements ActionListener
@@ -219,6 +216,7 @@ public class Logic {
             // Actions hvis man klikker på tilbage knappen
             if (e.getSource() == screen.getHighScore().getBtnBack())
             {
+                screen.getHighScore().clearTable();
                 screen.show(Screen.USERMENU);
             }
         }

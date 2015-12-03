@@ -31,9 +31,11 @@ public class ServerConnection {
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").post(ClientResponse.class);
+        ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
-
+        if (response.getStatus() != 200 && response.getStatus() !=201) {
+            throw new RuntimeException("Failed! Error: " + response.getStatus());
+        }
         return response.getEntity(String.class);
     }
 
@@ -58,12 +60,12 @@ public class ServerConnection {
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
 
-        if (response != null) {
-            return response.getEntity(String.class);
-
+        if (response.getStatus() != 200 && response.getStatus() !=201) {
+            throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
-        return "";
-    }
+
+            return response.getEntity(String.class);
+        }
 
     public String delete(String path) {
 
@@ -112,6 +114,19 @@ public class ServerConnection {
             return null;
         }
         return null;
+    }
+
+    public boolean joinGame (Game game) {
+        String path = "games/join/";
+        String json = new Gson().toJson(game, Game.class);
+
+        try {
+            put(json, path);
+        }
+        catch (Exception ex) {
+            return false;
+        }
+        return true;
     }
 
     public boolean deleteGame(String gameId) {
