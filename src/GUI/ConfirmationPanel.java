@@ -7,9 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-
+// klassen oprettes
 public class ConfirmationPanel extends JPanel
 {
+    // deklarerer variabler for klassen
     private JLabel lblHeader;
     private JLabel lblTitle;
     private JLabel lblFirst;
@@ -17,41 +18,49 @@ public class ConfirmationPanel extends JPanel
     private JLabel lblOk;
     private JButton btnOk;
 
+    // konstruktør der instantierer variablene
     public ConfirmationPanel () {
         setLayout(null);
         setBounds(100, 100, 530, 350);
         setBackground(new Color(247, 247, 243));
 
+        // label til overskriften
         lblHeader = new JLabel("");
         lblHeader.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
         lblHeader.setForeground(new Color(73, 103, 170));
         add(lblHeader);
 
+        // label til underoverskrift
         lblTitle = new JLabel();
         lblTitle.setText("Success!");
         lblTitle.setFont(new Font("Lucida Grande", Font.BOLD, 20));
         lblTitle.setBounds(215, 99, 99, 22);
         add(lblTitle);
 
+        // label til øverste tekststreng
         lblFirst = new JLabel();
         lblFirst.setText("");
         lblFirst.setBounds(135, 126, 311, 22);
         add(lblFirst);
 
+        // label til nederste tekststreng
         lblSecond = new JLabel();
         lblSecond.setText("");
         lblSecond.setBounds(135, 148, 311, 22);
         add(lblSecond);
 
+        // knap til at returnerer til menuen
         btnOk = new JButton("OK");
         add(btnOk);
 
+        // label til at beskrive "ok" knappen
         lblOk = new JLabel("Press \"OK\" to return to the main menu");
         lblOk.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
         add(lblOk);
 
     }
 
+    // Metode til at ændre labels så de passer til "play" funktionen
     public void showPlay(String Name, String Moves)
     {
         lblHeader.setBounds(230, 56, 186, 31);
@@ -65,6 +74,7 @@ public class ConfirmationPanel extends JPanel
         lblOk.setBounds(162, 210, 205, 16);
     }
 
+    // metode til at ændre labels så de passer til "join game" funktionen
     public void showJoinGame(String Moves, String gameID)
     {
         lblHeader.setBounds(230, 56, 186, 31);
@@ -78,6 +88,7 @@ public class ConfirmationPanel extends JPanel
         lblOk.setBounds(162, 210, 205, 16);
     }
 
+    // metode til at ændre labels så de passer til "delete game" funktionen
     public void showDelete(String gameID)
     {
         lblHeader.setBounds(200, 56, 186, 31);
@@ -91,11 +102,13 @@ public class ConfirmationPanel extends JPanel
         lblOk.setBounds(162, 210, 205, 16);
     }
 
+    // getter til "ok" kanppen
     public JButton getBtnOk()
     {
         return btnOk;
     }
 
+    // action listener til "ok" knappen
     public void addActionListener(ActionListener l) {
         btnOk.addActionListener(l);
     }

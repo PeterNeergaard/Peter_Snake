@@ -6,10 +6,11 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 
+// klassen oprettes
 public class Welcome extends JPanel {
 
+    // deklarerer variabler for klassen
     private static final long serialVersionUID = 1L;
     private JLabel lblTitle;
     private JLabel lblUserName;
@@ -24,41 +25,51 @@ public class Welcome extends JPanel {
     private String userName;
     private String password;
 
+    // konstruktør der instantierer variablene
     public Welcome() {
+
         setLayout(null);
         setBackground(new Color(247, 247, 243));
         setBounds(100, 100, 530, 306);
+
+        // label til overskriften
         lblTitle = new JLabel("Welcome to Snake");
         lblTitle.setForeground(new Color(73, 103, 170));
         lblTitle.setFont(new Font("Lucida Grande", Font.PLAIN, 25));
         lblTitle.setBounds(151, 40, 228, 31);
         add(lblTitle);
 
+        // label til tekstfeltet Username
         lblUserName = new JLabel("Username:");
         lblUserName.setBounds(128, 106, 79, 16);
         add(lblUserName);
 
+        // tekstfelt til at modtage et brugernavn
         txtUserName = new JTextField();
         txtUserName.setBounds(207, 100, 168, 28);
         add(txtUserName);
-        txtUserName.setColumns(10);
 
+        // label til tekstfeltet password
         lblPassword = new JLabel("Password:");
         lblPassword.setBounds(128, 140, 67, 16);
         add(lblPassword);
 
+        // knap til at logge ind
         btnLogin = new JButton("Login");
         btnLogin.setBounds(206, 168, 117, 29);
         add(btnLogin);
 
+        // knap til at lukke programmet
         btnQuit = new JButton("Exit");
         btnQuit.setBounds(6, 265, 79, 29);
         add(btnQuit);
 
+        // tekstfelt til at taste password
         passwordField = new JPasswordField();
         passwordField.setBounds(207, 134, 168, 28);
         add(passwordField);
 
+        // label som bliver vist hvis du prøver at logge ind med en forkert bruger
         wrongUser = new JLabel("Wrong username or password, try again");
         wrongUser.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         wrongUser.setForeground(Color.RED);
@@ -66,6 +77,7 @@ public class Welcome extends JPanel {
         wrongUser.setVisible(false);
         add(wrongUser);
 
+        // label der bliver vist hvis der sker en fejl (ud over forkert bruger)
         error = new JLabel("Error, please try again");
         error.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
         error.setForeground(Color.RED);
@@ -74,7 +86,18 @@ public class Welcome extends JPanel {
         add(error);
     }
 
+    // metode til at rydde password feltet
+    public void clearPassword()
+    {
+        passwordField.setText("");
+    }
 
+    // metode ti lat rydde username feltet
+    public void clearUserName() {
+        txtUserName.setText("");
+    }
+
+    //getters til knapperne og tekstfelterne
     public JLabel getWrongUser()
     {
         return wrongUser;
@@ -84,35 +107,16 @@ public class Welcome extends JPanel {
         return error;
     }
 
-    // Get Brugernavn
     public String getUserName()
     {
         userName = txtUserName.getText();
         return userName;
     }
 
-    public void setUsername(String userName)
-    {
-        this.userName = userName;
-    }
-
-    public void clearUserName() {
-        txtUserName.setText("");
-    }
-
-    // Get password
     public String getPassword()
     {
         password = passwordField.getText();
         return password;
-    }
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-    public void clearPassword()
-    {
-        passwordField.setText("");
     }
 
     public JButton getBtnLogin()
@@ -125,17 +129,11 @@ public class Welcome extends JPanel {
         return btnQuit;
     }
 
+    // action listeners til knapperne
     public void addActionListener(ActionListener l)
     {
         btnLogin.addActionListener(l);
         btnQuit.addActionListener(l);
-    }
-    public void addKeyListener(KeyAdapter l)
-    {
-        passwordField.addKeyListener(l);
-        txtUserName.addKeyListener(l);
-        btnLogin.addKeyListener(l);
-        btnQuit.addKeyListener(l);
     }
 
 

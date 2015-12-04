@@ -25,7 +25,7 @@ public class Logic {
     }
 
     public void run() {
-        // ActionListiners der refererer til alle de klasserne fra UI
+        // ActionListiners der refererer til alle  klasserne fra UI
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
         screen.getPlay().addActionListener(new PlayActionListener());
@@ -43,6 +43,7 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == screen.getWelcome().getBtnLogin()) {
+
                 String username = screen.getWelcome().getUserName();
                 String password = screen.getWelcome().getPassword();
 

@@ -15,9 +15,11 @@ public class ServerConnection {
         this.port = 8888;
     }
 
+    //Deklarerer variabler for klassen
     private String hostAddress;
     private int port;
 
+    // Getters til HostAdress og port, til når der skal snakkes med serveren
     public String getHostAddress() {
         return hostAddress;
     }
@@ -94,21 +96,16 @@ public class ServerConnection {
             return null;
         }
 
-        User currentUser = new User();
-        currentUser.setUsername(user.getUsername());
-        currentUser.setPassword(user.getPassword());
-        currentUser.setId(new Gson().fromJson(response.toString(), User.class).getId());
-
-        return currentUser;
+        user.setId(new Gson().fromJson(response.toString(), User.class).getId());
+        return user;
 
     }
     public Game playGame (Game game) {
         String path = "games/";
         String json = new Gson().toJson(game, Game.class);
-        String response;
 
         try {
-            response = post(json, path);
+            post(json, path);
         }
         catch (Exception ex) {
             return null;
@@ -151,8 +148,7 @@ public class ServerConnection {
         catch (Exception ex) {
             return null;
         }
-        Score[] scores = new Gson().fromJson(response, Score[].class);
-        return scores;
+        return new Gson().fromJson(response, Score[].class);
     }
 
 

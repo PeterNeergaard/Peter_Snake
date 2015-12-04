@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 
+// klassen oprettes
 public class Screen extends JFrame
 {
 
@@ -19,6 +20,7 @@ public class Screen extends JFrame
     public static final String DELETEGAME = "deletegame1234";
     public static final String CONFIRMATION = "confimationPanel1234";
 
+    // deklarerer variabler for klassen
     public Welcome welcome;
     public UserMenu userMenu;
     public Play play;
@@ -30,6 +32,7 @@ public class Screen extends JFrame
     private JPanel contentPane;
     private CardLayout c;
 
+    // konstruktør der instantierer variablene
     public Screen()
     {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,10 +66,12 @@ public class Screen extends JFrame
         c = (CardLayout) getContentPane().getLayout();
     }
 
+    // metode til at vise et bestemt "kort" - altså hvilken skærm der skal vises
     public void show(String card)
     {
         c.show(this.getContentPane(), card);
     }
+
     // Getters for JPanels
     public Welcome getWelcome()
     {
