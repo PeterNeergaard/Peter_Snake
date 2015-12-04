@@ -2,11 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec161bb5-bd38-4b86-9823-8224456e0295" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Game.java" afterPath="$PROJECT_DIR$/src/sdk/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Gamer.java" afterPath="$PROJECT_DIR$/src/sdk/Gamer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Score.java" afterPath="$PROJECT_DIR$/src/sdk/Score.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Game.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Game.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Gamer.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Gamer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/GUI/HighScore.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/GUI/HighScore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$ConfirmationPanelActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$ConfirmationPanelActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$DeleteActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$DeleteActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$HighScoreActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$HighScoreActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$JoinGameActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$JoinGameActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$PlayActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$PlayActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$UserMenuActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$UserMenuActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$WelcomeActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$WelcomeActionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/Main/Main.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/Main/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Score.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Score.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Screen.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Screen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/ServerConnection.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/ServerConnection.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/User.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Welcome.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Welcome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" afterPath="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/HighScore.java" afterPath="$PROJECT_DIR$/src/GUI/HighScore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/JoinGame.java" afterPath="$PROJECT_DIR$/src/GUI/JoinGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Logic.java" afterPath="$PROJECT_DIR$/src/sdk/Logic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/ServerConnection.java" afterPath="$PROJECT_DIR$/src/sdk/ServerConnection.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/User.java" afterPath="$PROJECT_DIR$/src/sdk/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Peter_snake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +51,23 @@
       <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sdk/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31690142">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.21800947">
+              <caret line="154" column="32" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sdk/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding>
+                <element signature="e#552#553#0" expanded="true" />
+                <element signature="e#577#578#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/src/sdk/ServerConnection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,21 +109,22 @@
         <option value="$PROJECT_DIR$/src/sdk/Snake.java" />
         <option value="$PROJECT_DIR$/src/sdk/test.java" />
         <option value="$PROJECT_DIR$/src/sdk/Test.java" />
-        <option value="$PROJECT_DIR$/src/sdk/Logic.java" />
-        <option value="$PROJECT_DIR$/src/sdk/ServerConnection.java" />
         <option value="$PROJECT_DIR$/src/GUI/Play.java" />
-        <option value="$PROJECT_DIR$/src/GUI/HighScore.java" />
-        <option value="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" />
         <option value="$PROJECT_DIR$/src/GUI/DeleteGame.java" />
-        <option value="$PROJECT_DIR$/src/GUI/JoinGame.java" />
-        <option value="$PROJECT_DIR$/src/GUI/Screen.java" />
         <option value="$PROJECT_DIR$/src/GUI/UserMenu.java" />
         <option value="$PROJECT_DIR$/src/GUI/Welcome.java" />
         <option value="$PROJECT_DIR$/src/Main/Main.java" />
         <option value="$PROJECT_DIR$/src/sdk/Game.java" />
         <option value="$PROJECT_DIR$/src/sdk/Gamer.java" />
         <option value="$PROJECT_DIR$/src/sdk/Score.java" />
+        <option value="$PROJECT_DIR$/src/GUI/HighScore.java" />
+        <option value="$PROJECT_DIR$/src/GUI/JoinGame2.java" />
+        <option value="$PROJECT_DIR$/src/GUI/Screen.java" />
+        <option value="$PROJECT_DIR$/src/GUI/JoinGame.java" />
+        <option value="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" />
         <option value="$PROJECT_DIR$/src/sdk/User.java" />
+        <option value="$PROJECT_DIR$/src/sdk/ServerConnection.java" />
+        <option value="$PROJECT_DIR$/src/sdk/Logic.java" />
       </list>
     </option>
   </component>
@@ -545,12 +578,12 @@
       <workItem from="1448895784180" duration="92000" />
       <workItem from="1448996143513" duration="13570000" />
       <workItem from="1449144131039" duration="13090000" />
-      <workItem from="1449220328878" duration="7394000" />
+      <workItem from="1449220328878" duration="14142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73026000" />
+    <option name="totallyTimeSpent" value="79774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="23" width="1260" height="688" extended-state="0" />
@@ -565,7 +598,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24496645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24496645" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24958949" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -686,8 +719,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
           <folding>
-            <element signature="e#2609#2610#0" expanded="true" />
-            <element signature="e#2676#2677#0" expanded="true" />
+            <element signature="e#3053#3054#0" expanded="true" />
+            <element signature="e#3142#3143#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -725,8 +758,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="80" column="29" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
           <folding>
-            <element signature="e#2609#2610#0" expanded="true" />
-            <element signature="e#2676#2677#0" expanded="true" />
+            <element signature="e#3053#3054#0" expanded="true" />
+            <element signature="e#3142#3143#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -895,14 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/ConfirmationPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6042655">
-          <caret line="102" column="5" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/DeleteGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -910,20 +935,6 @@
           <folding>
             <element signature="e#2599#2600#0" expanded="true" />
             <element signature="e#2631#2632#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/JoinGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.508803">
-          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
-          <folding>
-            <element signature="e#2408#2409#0" expanded="true" />
-            <element signature="e#2445#2446#0" expanded="true" />
-            <element signature="method#getGameId#0;class#JoinGame#0" expanded="false" />
-            <element signature="method#getIntGameId#0;class#JoinGame#0" expanded="false" />
-            <element signature="method#getMoves#0;class#JoinGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -936,34 +947,6 @@
             <element signature="method#getMoves#0;class#Play#0" expanded="false" />
             <element signature="method#getName#0;class#Play#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7165493">
-          <caret line="68" column="80" selection-start-line="68" selection-start-column="80" selection-end-line="68" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Welcome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04028436">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-          <folding>
-            <element signature="method#getUserName#0;class#Welcome#0" expanded="false" />
-            <element signature="method#getPassword#0;class#Welcome#0" expanded="false" />
-            <element signature="method#addActionListener#0;class#Welcome#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/HighScore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4225352">
-          <caret line="20" column="33" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,36 +982,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/User.java">
+    <entry file="file://$PROJECT_DIR$/src/GUI/HighScore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66021127">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.57922536">
+          <caret line="68" column="94" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/UserMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49823943">
+        <state vertical-scroll-proportion="0.0">
           <caret line="22" column="30" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding>
+            <element signature="e#2506#2507#0" expanded="true" />
+            <element signature="e#2533#2534#0" expanded="true" />
+            <element signature="e#2574#2575#0" expanded="true" />
+            <element signature="e#2605#2606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Welcome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
+          <folding>
+            <element signature="method#getUserName#0;class#Welcome#0" expanded="false" />
+            <element signature="method#getPassword#0;class#Welcome#0" expanded="false" />
+            <element signature="method#addActionListener#0;class#Welcome#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/ConfirmationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/JoinGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="40" selection-start-line="80" selection-start-column="40" selection-end-line="80" selection-end-column="40" />
+          <folding>
+            <element signature="e#2749#2750#0" expanded="true" />
+            <element signature="e#2786#2787#0" expanded="true" />
+            <element signature="e#2822#2823#0" expanded="true" />
+            <element signature="e#2858#2859#0" expanded="true" />
+            <element signature="e#3283#3284#0" expanded="true" />
+            <element signature="e#3315#3316#0" expanded="true" />
+            <element signature="e#3354#3355#0" expanded="true" />
+            <element signature="e#3384#3385#0" expanded="true" />
+            <element signature="e#3423#3424#0" expanded="true" />
+            <element signature="e#3453#3454#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk/ServerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <caret line="133" column="29" selection-start-line="133" selection-start-column="29" selection-end-line="133" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#552#553#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31690142">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.21800947">
+          <caret line="154" column="32" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -86,6 +86,7 @@ public class ConfirmationPanel extends JPanel
         lblSecond.setBounds(135, 148, 338, 22);
         btnOk.setBounds(206, 182, 117, 29);
         lblOk.setBounds(162, 210, 205, 16);
+
     }
 
     // metode til at ændre labels så de passer til "delete game" funktionen

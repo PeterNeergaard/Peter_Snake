@@ -23,6 +23,9 @@ public class User {
 
     public User() {}
 
+    private int userId;
+
+
     //Laver getters og setters til alle variablerne
     public int getId() {
         return id;
@@ -95,5 +98,10 @@ public class User {
     public void setType(int type) {
         this.type = type;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
 
 }

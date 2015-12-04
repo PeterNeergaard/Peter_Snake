@@ -21,6 +21,7 @@ public class JoinGame extends JPanel
     private JButton btnCancel;
     private String gameID;
     private String moves;
+    private JButton btnJoin;
 
     // konstruktør der instantierer variablene
     public JoinGame()
@@ -65,6 +66,8 @@ public class JoinGame extends JPanel
 
         // knap til at spille, og sende sine styringshandlinger osv. til serveren
         btnPlay = new JButton("Play");
+        btnPlay.setEnabled(false);
+        btnPlay.setVisible(false);
         btnPlay.setBounds(198, 221, 117, 38);
         add(btnPlay);
 
@@ -73,6 +76,13 @@ public class JoinGame extends JPanel
         btnCancel.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
         btnCancel.setBounds(6, 265, 76, 29);
         add(btnCancel);
+
+        btnJoin = new JButton("Join");
+        btnJoin.setFont(new Font("Lucida Grande", Font.PLAIN, 9));
+        btnPlay.setEnabled(true);
+        btnPlay.setVisible(true);
+        btnJoin.setBounds(439, 114, 76, 29);
+        add(btnJoin);
     }
 
     public void clearGameID()
@@ -108,6 +118,11 @@ public class JoinGame extends JPanel
         return btnCancel;
     }
 
+    public JButton getBtnJoin()
+    {
+        return btnJoin;
+    }
+
     public JButton getBtnPlay()
     {
         return btnPlay;
@@ -117,6 +132,7 @@ public class JoinGame extends JPanel
     public void addActionListener(ActionListener l)
     {
         btnPlay.addActionListener(l);
+        btnJoin.addActionListener(l);
         btnCancel.addActionListener(l);
     }
 }

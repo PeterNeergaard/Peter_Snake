@@ -51,7 +51,9 @@ public class ServerConnection {
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
-        return response.getEntity(String.class);
+        String output = response.getEntity(String.class);
+        System.out.println(output);
+        return output;
 
     }
 
@@ -84,7 +86,7 @@ public class ServerConnection {
 
     }
 
-    public User logIn (User user) {
+    /**public User logIn (User user) {
         String path = "login/";
         String json = new Gson().toJson(user, User.class);
         String response;
@@ -99,7 +101,8 @@ public class ServerConnection {
         user.setId(new Gson().fromJson(response.toString(), User.class).getId());
         return user;
 
-    }
+    }*/
+
     public Game playGame (Game game) {
         String path = "games/";
         String json = new Gson().toJson(game, Game.class);
@@ -124,6 +127,19 @@ public class ServerConnection {
             return false;
         }
         return true;
+    }
+
+    public Game startGame (Game game) {
+        String path = "games/start/";
+        String json = new Gson().toJson(game, Game.class);
+
+        try {
+            put(json, path);
+        }
+        catch (Exception ex) {
+            return null;
+        }
+        return null;
     }
 
     public boolean deleteGame(String gameId) {

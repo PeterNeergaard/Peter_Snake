@@ -31,7 +31,7 @@ public class HighScore extends JPanel
         add(scrollPane);
 
         // tabellen der fyldes ind i ScrollPane
-        highScoreTable = new JTable(new DefaultTableModel(new Object[]{"Game Name", "GameId", "Score", "Winner"}, 0));
+        highScoreTable = new JTable(new DefaultTableModel(new Object[]{"User Name", "Game name", "Score", "Winner"}, 0));
         scrollPane.setViewportView(highScoreTable);
 
         // label til overskriften
@@ -66,7 +66,7 @@ public class HighScore extends JPanel
         DefaultTableModel model = (DefaultTableModel) highScoreTable.getModel();
 
         for(Score score : scores) {
-            model.addRow(new Object[]{score.getGame().getName(), score.getGame().getGameId(), score.getScore(), score.getGame().getWinner()});
+            model.addRow(new Object[]{score.getUser().getUsername(), score.getGame().getName(), score.getScore(), score.getGame().getWinner()});
         }
     }
 
