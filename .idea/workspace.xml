@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec161bb5-bd38-4b86-9823-8224456e0295" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/GUI/HighScore.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/GUI/HighScore.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$ConfirmationPanelActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$ConfirmationPanelActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$DeleteActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$DeleteActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$HighScoreActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$HighScoreActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$JoinGameActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$JoinGameActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$PlayActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$PlayActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$UserMenuActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$UserMenuActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$WelcomeActionListener.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/Logic$WelcomeActionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Play.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/GUI/Play.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/ServerConnection.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/ServerConnection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Peter_snake/sdk/User.class" afterPath="$PROJECT_DIR$/out/production/Peter_snake/sdk/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" afterPath="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/DeleteGame.java" afterPath="$PROJECT_DIR$/src/GUI/DeleteGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/HighScore.java" afterPath="$PROJECT_DIR$/src/GUI/HighScore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/JoinGame.java" afterPath="$PROJECT_DIR$/src/GUI/JoinGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Logic.java" afterPath="$PROJECT_DIR$/src/sdk/Logic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Play.java" afterPath="$PROJECT_DIR$/src/GUI/Play.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Screen.java" afterPath="$PROJECT_DIR$/src/GUI/Screen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/ServerConnection.java" afterPath="$PROJECT_DIR$/src/sdk/ServerConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Game.java" afterPath="$PROJECT_DIR$/src/sdk/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Gamer.java" afterPath="$PROJECT_DIR$/src/sdk/Gamer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.java" afterPath="$PROJECT_DIR$/src/Main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/Score.java" afterPath="$PROJECT_DIR$/src/sdk/Score.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sdk/User.java" afterPath="$PROJECT_DIR$/src/sdk/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/UserMenu.java" afterPath="$PROJECT_DIR$/src/GUI/UserMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/Welcome.java" afterPath="$PROJECT_DIR$/src/GUI/Welcome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Peter_snake.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Logic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sdk/Logic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.31690142">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,16 +49,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HighScore.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GUI/HighScore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4225352">
-              <caret line="20" column="33" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -103,14 +75,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/Logic/Snake.java" />
         <option value="$PROJECT_DIR$/src/sdk/Snake.java" />
-        <option value="$PROJECT_DIR$/src/sdk/Gamer.java" />
         <option value="$PROJECT_DIR$/src/sdk/test.java" />
         <option value="$PROJECT_DIR$/src/sdk/Test.java" />
-        <option value="$PROJECT_DIR$/src/sdk/Score.java" />
-        <option value="$PROJECT_DIR$/src/sdk/User.java" />
         <option value="$PROJECT_DIR$/src/sdk/Logic.java" />
         <option value="$PROJECT_DIR$/src/sdk/ServerConnection.java" />
-        <option value="$PROJECT_DIR$/src/sdk/Game.java" />
         <option value="$PROJECT_DIR$/src/GUI/Play.java" />
         <option value="$PROJECT_DIR$/src/GUI/HighScore.java" />
         <option value="$PROJECT_DIR$/src/GUI/ConfirmationPanel.java" />
@@ -119,6 +87,11 @@
         <option value="$PROJECT_DIR$/src/GUI/Screen.java" />
         <option value="$PROJECT_DIR$/src/GUI/UserMenu.java" />
         <option value="$PROJECT_DIR$/src/GUI/Welcome.java" />
+        <option value="$PROJECT_DIR$/src/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/sdk/Game.java" />
+        <option value="$PROJECT_DIR$/src/sdk/Gamer.java" />
+        <option value="$PROJECT_DIR$/src/sdk/Score.java" />
+        <option value="$PROJECT_DIR$/src/sdk/User.java" />
       </list>
     </option>
   </component>
@@ -572,12 +545,12 @@
       <workItem from="1448895784180" duration="92000" />
       <workItem from="1448996143513" duration="13570000" />
       <workItem from="1449144131039" duration="13090000" />
-      <workItem from="1449220328878" duration="6915000" />
+      <workItem from="1449220328878" duration="7394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72547000" />
+    <option name="totallyTimeSpent" value="73026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="14" y="23" width="1260" height="688" extended-state="0" />
@@ -894,14 +867,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3697183">
-          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.4489436">
@@ -927,45 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33175355">
           <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17772512">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/Score.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49763033">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/Gamer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31990522">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39099526">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding>
-            <element signature="e#1271#1272#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1483#1484#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1555#1556#0" expanded="true" />
-            <element signature="e#1591#1592#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,24 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sdk/Logic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/UserMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1919014">
-          <caret line="100" column="49" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/Screen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.7165493">
@@ -1051,6 +959,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/HighScore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4225352">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19408503">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk/Gamer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15845071">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk/Score.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31690142">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sdk/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66021127">
+          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/UserMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49823943">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sdk/ServerConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1061,11 +1025,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/HighScore.java">
+    <entry file="file://$PROJECT_DIR$/src/sdk/Logic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4225352">
-          <caret line="20" column="33" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.31690142">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

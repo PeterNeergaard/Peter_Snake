@@ -7,8 +7,10 @@ import java.sql.Date;
  * OBS! fra serveren
  */
 
+// klassen oprettes
 public class Game {
-    //Creating the variables needed for the game
+
+    // Deklarerer variablerne til Game klassen
     private int gameId;
     private Gamer winner;
     private String name;
@@ -20,6 +22,7 @@ public class Game {
 
     public Game(){}
 
+    //Laver getters og setters til alle variablerne
     public Date getCreated() {
         return created;
     }
@@ -44,7 +47,6 @@ public class Game {
         this.name = name;
     }
 
-    //Creating get/set method for all the variables, so they can be used by other classes
     public int getGameId(){
         return gameId;
     }

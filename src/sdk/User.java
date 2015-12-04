@@ -6,10 +6,11 @@ import java.sql.Date;
  * Created by Oscar on 12-10-2015.
  * OBS! Fra serveren
  */
-//
+
+// klassen oprettes
 public class User {
 
-    //creating variables
+    // Deklarerer variablerne til Game klassen
     private int id;
     private String firstName;
     private String lastName;
@@ -22,9 +23,7 @@ public class User {
 
     public User() {}
 
-    //creating get and set method for all the variables, so they can be used by other classes
-
-
+    //Laver getters og setters til alle variablerne
     public int getId() {
         return id;
     }

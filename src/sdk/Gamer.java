@@ -4,14 +4,18 @@ package sdk;
  * Created by jesperbruun on 15/10/15.
  * OBS! Fra serveren
  */
+
+// klassen oprettes
 public class Gamer extends User {
 
+    // Deklarerer variablerne til Game klassen
     private int score;
     private int totalScore;
     private int kills;
     private String controls;
     private boolean winner;
 
+    //Laver getters og setters til alle variablerne
     public boolean isWinner() {
         return winner;
     }

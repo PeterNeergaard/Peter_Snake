@@ -6,10 +6,10 @@ package sdk;
  */
 
 
-// Creates class Score
+// klassen oprettes
 public class Score {
 
-    // Declare highScore
+    // Deklarerer variablerne til Game klassen
     private int id;
     private Gamer user;
     private Gamer opponent;
@@ -18,8 +18,7 @@ public class Score {
 
     public Score(){}
 
-    // Creates get method which returns the highScore
-
+    //Laver getters og setters til alle variablerne
     public Gamer getOpponent() { return opponent; }
 
     public void setOpponent(Gamer opponent) { this.opponent = opponent;  }
