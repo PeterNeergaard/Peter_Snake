@@ -4,7 +4,6 @@ package sdk;
  * Created by Peter on 19/11/15.
  */
 import GUI.Screen;
-import com.google.gson.Gson;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,22 +51,20 @@ public class Logic {
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
 
-                String json = new Gson().toJson(currentUser);
-                String response = serverConnection.post(json, "login/");
-                currentUser.setId(new Gson().fromJson(response.toString(), User.class).getUserId());
+                //currentUser.setId(new Gson().fromJson(response.toString(), User.class).getUserId());
 
-                //currentUser = serverConnection.logIn(currentUser);
+                currentUser = serverConnection.logIn(currentUser);
 
-                //if (currentUser != null) {
+                if (currentUser != null) {
                     screen.show(screen.USERMENU);
                     screen.getWelcome().getWrongUser().setVisible(false);
                     screen.getWelcome().getError().setVisible(false);
                     System.out.println(currentUser.getId());
-                //}
+                }
 
-                /**if (currentUser == null) {
+                if (currentUser == null) {
                     screen.getWelcome().getWrongUser().setVisible(true);
-                }*/
+                }
             } else if (e.getSource() == screen.getWelcome().getBtnQuit()) {
                 System.exit(0);
             }
@@ -148,24 +145,24 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            int gameId = screen.getJoingame().getIntGameId();
-
-            Gamer opponent = new Gamer();
-            opponent.setId(1);
-            opponent.setControls(screen.getJoingame().getMoves());
-
-            Game game = new Game();
-            game.setOpponent(opponent);
-            game.setGameId(gameId);
 
             // Actions hvis man klikker på play knappen
             if (e.getSource() == screen.getJoingame().getBtnJoin())
             {
+                int gameId = screen.getJoingame().getIntGameId();
+
+                Gamer opponent = new Gamer();
+                opponent.setId(currentUser.getId());
+                opponent.setControls(screen.getJoingame().getMoves());
+
+                Game game = new Game();
+                game.setOpponent(opponent);
+                game.setGameId(gameId);
+
                 System.out.println(game.getGameId());
                 System.out.println(opponent.getControls());
 
                 boolean success = serverConnection.joinGame(game);
-
 
                 if (success) {
                     screen.getJoingame().getBtnJoin().setVisible(false);
@@ -178,6 +175,15 @@ public class Logic {
                 }
             }
             else if (e.getSource() == screen.getJoingame().getBtnPlay()) {
+
+                int gameId = screen.getJoingame().getIntGameId();
+
+                Gamer opponent = new Gamer();
+                opponent.setControls(screen.getJoingame().getMoves());
+
+                Game game = new Game();
+                game.setOpponent(opponent);
+                game.setGameId(gameId);
 
                 serverConnection.startGame(game);
                 screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());

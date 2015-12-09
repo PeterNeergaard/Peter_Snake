@@ -19,7 +19,7 @@ public class ServerConnection {
     private String hostAddress;
     private int port;
 
-    // Getters til HostAdress og port, til når der skal snakkes med serveren
+    // Getters til HostAddress og port, til når der skal snakkes med serveren
     public String getHostAddress() {
         return hostAddress;
     }
@@ -28,16 +28,25 @@ public class ServerConnection {
         return port;
     }
 
+
+    // Metode til at hente data fra databasen gennem serveren, ved brug af HTTP get
     public String get(String path){
 
-        Client client = Client.create();
+        Client client = Client.create(); // opretter et instans af Client
 
+        // Opretter et objekt af WebResource med URI der passer til serverens adresse
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+
+        //Bruger get() metoden fra WebResource klassen til at lave en HTTP GET forespørgesel  til vores web resource
+        //dvs. hvis vores URI til WebResource svare til serverens adresse
+        //så sendes der en HTTP GET forespørgelse til den resource der har adresse svarene til URI'en (altså serveren)
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
+        //Exception i tilgælde af der ikke returneres 200 eller 201 fra serveren
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
+        //ClientResponse objektet (response) repræsenterer et HTTP response i klienten, som her returneres
         return response.getEntity(String.class);
     }
 
@@ -51,9 +60,7 @@ public class ServerConnection {
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
-        String output = response.getEntity(String.class);
-        System.out.println(output);
-        return output;
+        return response.getEntity(String.class);
 
     }
 
@@ -86,7 +93,7 @@ public class ServerConnection {
 
     }
 
-    /**public User logIn (User user) {
+    public User logIn (User user) {
         String path = "login/";
         String json = new Gson().toJson(user, User.class);
         String response;
@@ -101,8 +108,7 @@ public class ServerConnection {
         user.setId(new Gson().fromJson(response.toString(), User.class).getId());
         return user;
 
-    }*/
-
+    }
     public Game playGame (Game game) {
         String path = "games/";
         String json = new Gson().toJson(game, Game.class);
@@ -166,8 +172,4 @@ public class ServerConnection {
         }
         return new Gson().fromJson(response, Score[].class);
     }
-
-
-
-
 }

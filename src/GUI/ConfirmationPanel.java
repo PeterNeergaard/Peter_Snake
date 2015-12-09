@@ -15,6 +15,7 @@ public class ConfirmationPanel extends JPanel
     private JLabel lblTitle;
     private JLabel lblFirst;
     private JLabel lblSecond;
+    private JLabel lblThird;
     private JLabel lblOk;
     private JButton btnOk;
 
@@ -43,11 +44,17 @@ public class ConfirmationPanel extends JPanel
         lblFirst.setBounds(135, 126, 311, 22);
         add(lblFirst);
 
-        // label til nederste tekststreng
+        // label til midterste tekststreng
         lblSecond = new JLabel();
         lblSecond.setText("");
         lblSecond.setBounds(135, 148, 311, 22);
         add(lblSecond);
+
+        // label til nederste tekststreng
+        lblThird = new JLabel();
+        lblThird.setText("");
+        lblThird.setBounds(135, 179, 285, 16);
+        add(lblThird);
 
         // knap til at returnerer til menuen
         btnOk = new JButton("OK");
@@ -80,10 +87,12 @@ public class ConfirmationPanel extends JPanel
         lblHeader.setBounds(230, 56, 186, 31);
         lblHeader.setText("Play");
         lblTitle.setText("Success!");
-        lblFirst.setText("You battled the owner og game: "+gameID);
+        lblFirst.setText("You battled the owner og game: " + gameID);
         lblFirst.setBounds(135, 126, 468, 22);
         lblSecond.setText("With the moves: "+Moves);
         lblSecond.setBounds(135, 148, 338, 22);
+        //lblThird.setText("The winner og the game is: " + winnerName);
+        lblThird.setBounds(135, 179, 285, 16);
         btnOk.setBounds(206, 182, 117, 29);
         lblOk.setBounds(162, 210, 205, 16);
 
