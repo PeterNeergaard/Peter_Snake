@@ -25,7 +25,7 @@ public class Logic {
     }
 
     public void run() {
-        // ActionListiners der refererer til alle  klasserne fra UI
+        // ActionListeners der refererer til alle  klasserne fra UI
         screen.getWelcome().addActionListener(new WelcomeActionListener());
         screen.getUserMenu().addActionListener(new UserMenuActionListener());
         screen.getPlay().addActionListener(new PlayActionListener());
@@ -42,29 +42,33 @@ public class Logic {
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == screen.getWelcome().getBtnLogin()) {
+            if (e.getSource() == screen.getWelcome().getBtnLogin()) { // når der trykkes på "login"
 
+                // opretter to strings og deklarerer dem til det brugeren indtaster
                 String username = screen.getWelcome().getUserName();
                 String password = screen.getWelcome().getPassword();
 
-                currentUser = new User();
+                currentUser = new User(); // instantierer current user
+                //sætter username og password for currentUser
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
 
+                //kører logIn() med currentUsers variabler. og sætter derefter currentUser lig med det der retuneres
                 currentUser = serverConnection.logIn(currentUser);
 
+                //hvis der ikke retuneres null:
                 if (currentUser != null) {
-                    screen.show(screen.USERMENU);
-                    screen.getWelcome().getWrongUser().setVisible(false);
-                    screen.getWelcome().getError().setVisible(false);
-                    System.out.println(currentUser.getId());
+                    screen.show(screen.USERMENU); //brugeren føres til Usermenu
+                    screen.getWelcome().getWrongUser().setVisible(false); //viser ikke wrong user tekst
+                    screen.getWelcome().getError().setVisible(false); //viser ikke error tekst
                 }
 
+                // hvis der retuneres null:
                 if (currentUser == null) {
-                    screen.getWelcome().getWrongUser().setVisible(true);
+                    screen.getWelcome().getWrongUser().setVisible(true); // der vises wrong user label
                 }
-            } else if (e.getSource() == screen.getWelcome().getBtnQuit()) {
-                System.exit(0);
+            } else if (e.getSource() == screen.getWelcome().getBtnQuit()) { //hvis der trykkes på exit
+                System.exit(0); // klienten lukker ned
             }
         }
     }
