@@ -1,6 +1,4 @@
-package Main;
-
-import sdk.Logic;
+package Controller;
 
 /**
  * Created by Peter on 19/11/15.

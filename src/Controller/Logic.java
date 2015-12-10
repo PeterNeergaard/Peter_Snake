@@ -1,10 +1,10 @@
-package sdk;
+package Controller;
 
 /**
  * Created by Peter on 19/11/15.
  */
 import GUI.Screen;
-
+import sdk.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
