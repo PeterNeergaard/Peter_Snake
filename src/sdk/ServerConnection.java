@@ -142,54 +142,57 @@ public class ServerConnection {
     }
 
     //metode til at join et spil
-    public boolean joinGame (Game game) {
+    public boolean joinGame (Game game) { //boolean da vi skal vide om spillet findes
         String path = "games/join/"; // sætter en path til vores webResource
-        String json = new Gson().toJson(game, Game.class);
+        String json = new Gson().toJson(game, Game.class); //laver  en Json fra game klassen vha. Gson
 
         try {
-            put(json, path);
+            put(json, path); //kører put metoden med den Json og path vi lige har sat
         }
         catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
-            return false;
+            return false; //i tilfælde af fejl/et spil der ikke findes returneres false
         }
-        return true;
+        return true; //findes spillet returneres true
     }
 
+    // metode til at starte spillet
     public Game startGame (Game game) {
-        String path = "games/start/";
-        String json = new Gson().toJson(game, Game.class);
+        String path = "games/start/"; //sætter en path til vores webResource
+        String json = new Gson().toJson(game, Game.class); //laver en Json fra game klassen vha. Gson
 
         try {
-            put(json, path);
+            put(json, path); // kører put metoden med den Json og path vi lige har sat
         }
         catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
-        return null;
+        return null; // der returneres ikke noget til klienten
     }
 
+    // metode til at slette et spil
     public boolean deleteGame(String gameId) {
-        String path ="games/" +gameId;
+        String path ="games/" +gameId; // sætter en path til webResource, og tilføjer id på spillet der skal slettes
 
         try {
-            delete(path);
+            delete(path); // kører delete metoden med den path vi har sat (incl. gameID)
         }
         catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
-            return false;
+            return false; //findes spillet ikke returneres false
         }
-        return true;
+        return true; //kan den godt finde gameID i databasen returneres true
     }
 
+    // metode til at vise highscore
     public Score[] highScore(){
-        String path ="scores/";
-        String response;
+        String path ="scores/"; // sætter en path til webResource
+        String response; // opretter en String, da der skal returneres noget til klienten
 
         try {
-            response = get(path);
+            response = get(path); //kører get metoden med den path vi har sat, og sætter den lig med response
         }
         catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
-        return new Gson().fromJson(response, Score[].class);
+        return new Gson().fromJson(response, Score[].class); //returnerer en Gson fra den Json der kommer fra serveren
     }
 }
