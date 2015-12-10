@@ -51,8 +51,6 @@ public class Logic {
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
 
-                //currentUser.setId(new Gson().fromJson(response.toString(), User.class).getUserId());
-
                 currentUser = serverConnection.logIn(currentUser);
 
                 if (currentUser != null) {
@@ -77,10 +75,16 @@ public class Logic {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == screen.getUserMenu().getBtnPlay())
             {
+                screen.getPlay().clearPlay();
+                screen.getPlay().clearName();
                 screen.show(Screen.PLAY);
             }
             else if (e.getSource() == screen.getUserMenu().getBtnJoinGame())
             {
+                screen.getJoingame().getBtnJoin().setVisible(true);
+                screen.getJoingame().getBtnJoin().setEnabled(true);
+                screen.getJoingame().getBtnPlay().setVisible(false);
+                screen.getJoingame().getBtnPlay().setEnabled(false);
                 screen.getJoingame().clearGameID();
                 screen.getJoingame().clearMoves();
                 screen.show(Screen.JOINGAME);
@@ -101,6 +105,7 @@ public class Logic {
                 screen.show(Screen.WELCOME);
                 screen.getWelcome().clearUserName();
                 screen.getWelcome().clearPassword();
+
             }
         }
     }
@@ -116,7 +121,7 @@ public class Logic {
                 if (e.getSource() == screen.getPlay().getBtnPlay())
                 {
                     Gamer host = new Gamer();
-                    host.setId(currentUser.getId());
+                    host.setId(1);
                     host.setControls(screen.getPlay().getMoves());
 
                     Game game = new Game();
@@ -126,10 +131,9 @@ public class Logic {
 
                     serverConnection.playGame(game);
 
-                        screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
+                    screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
                         screen.show(Screen.CONFIRMATION);
-                        screen.getPlay().clearPlay();
-                        screen.getPlay().clearName();
+
 
                 }
                 else if (e.getSource() == screen.getPlay().getBtnCancel())
@@ -152,15 +156,12 @@ public class Logic {
                 int gameId = screen.getJoingame().getIntGameId();
 
                 Gamer opponent = new Gamer();
-                opponent.setId(currentUser.getId());
+                opponent.setId(2);
                 opponent.setControls(screen.getJoingame().getMoves());
 
                 Game game = new Game();
                 game.setOpponent(opponent);
                 game.setGameId(gameId);
-
-                System.out.println(game.getGameId());
-                System.out.println(opponent.getControls());
 
                 boolean success = serverConnection.joinGame(game);
 
@@ -186,11 +187,11 @@ public class Logic {
                 game.setGameId(gameId);
 
                 serverConnection.startGame(game);
+
                 screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());
                 screen.show(Screen.CONFIRMATION);
             }
-            else if (e.getSource() == screen.getJoingame().getBtnCancel())
-            {
+            else if (e.getSource() == screen.getJoingame().getBtnCancel()) {
                 screen.show(Screen.USERMENU);
                 screen.getJoingame().clearGameID();
                 screen.getJoingame().clearMoves();

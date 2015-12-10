@@ -32,17 +32,18 @@ public class ServerConnection {
     // Metode til at hente data fra databasen gennem serveren, ved brug af HTTP get
     public String get(String path){
 
-        Client client = Client.create(); // opretter et instans af Client
+        Client client = Client.create(); // opretter af instans af Client
 
         // Opretter et objekt af WebResource med URI der passer til serverens adresse
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
 
-        //Bruger get() metoden fra WebResource klassen til at lave en HTTP GET forespørgesel  til vores web resource
-        //dvs. hvis vores URI til WebResource svare til serverens adresse
-        //så sendes der en HTTP GET forespørgelse til den resource der har adresse svarene til URI'en (altså serveren)
+        //Bruger get() metoden fra webResource klassen til at lave en HTTP GET forespørgesel  til vores web resource
+        /**Forklaring - går ikke igen til lignende metoder
+        dvs. hvis vores URI til WebResource svarer til serverens adresse
+        så sendes der en HTTP GET forespørgelse til den resource der har adresse svarene til URI'en (altså serveren)*/
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
-        //Exception i tilgælde af der ikke returneres 200 eller 201 fra serveren
+        //Exception i tilfælde af der ikke returneres 200 eller 201 fra serveren
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
@@ -50,86 +51,105 @@ public class ServerConnection {
         return response.getEntity(String.class);
     }
 
+    // Metode til at sende ny data til serveren,
     public String post(String json, String path){
 
-        Client client = Client.create();
+        Client client = Client.create(); // opretter en instans af Client
 
+        // opretter et objekt af WebResource med URI der matcher til serverens adresse
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        //bruger post() metoden fra webResource klassen til at lave en HTTP post forespørgesel til vores server
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
 
+        //Exception i tilfælde af der ikke returneres 200 eller 201 fra serveren
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
+        // returnerer response fra serveren
         return response.getEntity(String.class);
 
     }
 
+    //metode til at opdatere data fra serveren (ændre ting i databasen)
     public String put(String json, String path) {
 
-        Client client = Client.create();
+        Client client = Client.create(); // opretter en instans af Client
 
+        // opretter et objekt af WebResource med URI der matcher serverens adresse
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        // bruger put() metoden fra webResource klassen til at lave en HTTP put forespørgesel til vores server
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
 
+        //Exception i tilfælde af der ikke returneres 200 eller 201 fra serveren
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
 
-            return response.getEntity(String.class);
+        // returnerer response fra serveren
+        return response.getEntity(String.class);
         }
 
+    // metode til at slette data fra serveren
     public String delete(String path) {
 
-        Client client = Client.create();
+        Client client = Client.create(); // opretter en instans af Client
 
+        // opretter et objekt af WebResource med UTI der matcher serverens adresse
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        //bruger delete() metoden fra webResource klassen til at lave en HTTP delete forespørgelse til vores sever
         ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
 
+        //Exception i tilfælde af der ikke returneres 200 eller 201 fra serveren
         if (response.getStatus() != 200 && response.getStatus() !=201) {
             throw new RuntimeException("Failed! Error: " + response.getStatus());
         }
-
+        // returnerer response fra serveren
         return response.getEntity(String.class);
 
     }
 
+    //metode til at logge en bruger in
     public User logIn (User user) {
-        String path = "login/";
-        String json = new Gson().toJson(user, User.class);
+        String path = "login/"; // sætter en path til vores webResource URI
+        String json = new Gson().toJson(user, User.class); //laver java objekter om til Json vha. Gson - her User
+        // opretter en String response - bruges i forsøg på at knytte userID til den bruger som logger ind
         String response;
 
         try {
-            response = post(json, path);
+            response = post(json, path); //kører post metoden med den Json og path vi lige har sat
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
 
-        user.setId(new Gson().fromJson(response.toString(), User.class).getId());
-        return user;
+        user.setId(new Gson().fromJson(response.toString(), User.class).getId());// forsøg på at få user ID - virker ikke
+
+        return user; // returnerer user
 
     }
+    // metode til at oprette et spil
     public Game playGame (Game game) {
-        String path = "games/";
-        String json = new Gson().toJson(game, Game.class);
+        String path = "games/"; //sætter en path til vores webResource
+        String json = new Gson().toJson(game, Game.class); // laver en Json fra game klassen vha. Gson
 
         try {
-            post(json, path);
+            post(json, path); // kører post metoden med den Json og path vi lige har sat
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
-        return null;
+        return null; //der returneres ikke noget til klienten
     }
 
+    //metode til at join et spil
     public boolean joinGame (Game game) {
-        String path = "games/join/";
+        String path = "games/join/"; // sætter en path til vores webResource
         String json = new Gson().toJson(game, Game.class);
 
         try {
             put(json, path);
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return false;
         }
         return true;
@@ -142,7 +162,7 @@ public class ServerConnection {
         try {
             put(json, path);
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
         return null;
@@ -154,7 +174,7 @@ public class ServerConnection {
         try {
             delete(path);
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return false;
         }
         return true;
@@ -167,7 +187,7 @@ public class ServerConnection {
         try {
             response = get(path);
         }
-        catch (Exception ex) {
+        catch (Exception ex) { //exception for at sørge for programmet ikke crasher hvis intet tastes
             return null;
         }
         return new Gson().fromJson(response, Score[].class);
