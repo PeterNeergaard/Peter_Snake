@@ -4,15 +4,18 @@
       <w>adresse</w>
       <w>alle</w>
       <w>altså</w>
+      <w>arraylist</w>
       <w>brug</w>
       <w>bruger</w>
       <w>brugeren</w>
       <w>bruges</w>
+      <w>bugeren</w>
       <w>databasen</w>
       <w>deklarerer</w>
       <w>derefter</w>
       <w>eller</w>
       <w>fejl</w>
+      <w>feltet</w>
       <w>finde</w>
       <w>findes</w>
       <w>forbindelse</w>
@@ -27,6 +30,7 @@
       <w>godt</w>
       <w>gson</w>
       <w>hente</w>
+      <w>henter</w>
       <w>highscore</w>
       <w>hvis</w>
       <w>igen</w>
@@ -39,6 +43,9 @@
       <w>klasser</w>
       <w>klasserne</w>
       <w>klienten</w>
+      <w>knap</w>
+      <w>knappen</w>
+      <w>knapper</w>
       <w>knytte</w>
       <w>kommer</w>
       <w>kører</w>
@@ -46,49 +53,72 @@
       <w>lige</w>
       <w>lignende</w>
       <w>logge</w>
+      <w>logget</w>
       <w>lukker</w>
+      <w>menuen</w>
       <w>metode</w>
       <w>metoden</w>
+      <w>navn</w>
+      <w>navnet</w>
       <w>noget</w>
+      <w>nogle</w>
       <w>objekt</w>
       <w>objekter</w>
       <w>objektet</w>
       <w>opdatere</w>
       <w>oprette</w>
       <w>opretter</w>
+      <w>oprettes</w>
+      <w>printes</w>
       <w>programmet</w>
       <w>refererer</w>
       <w>repræsenterer</w>
       <w>retuneres</w>
       <w>returnerer</w>
       <w>returneres</w>
+      <w>rydder</w>
       <w>sende</w>
       <w>sendes</w>
+      <w>serverconnection</w>
       <w>serveren</w>
       <w>serverens</w>
       <w>skal</w>
+      <w>skjuler</w>
+      <w>skærmen</w>
       <w>slette</w>
       <w>slettes</w>
       <w>snakkes</w>
       <w>spil</w>
       <w>spillet</w>
+      <w>spillets</w>
       <w>starte</w>
+      <w>står</w>
       <w>svare</w>
       <w>svarene</w>
       <w>svarer</w>
+      <w>synlighed</w>
       <w>sætter</w>
+      <w>sættes</w>
       <w>sørge</w>
+      <w>tabellen</w>
+      <w>tastet</w>
       <w>tilfælde</w>
       <w>tilføjer</w>
+      <w>trykker</w>
       <w>trykkes</w>
       <w>uri'en</w>
       <w>usermenu</w>
       <w>variabler</w>
       <w>variablerene</w>
+      <w>variablerne</w>
       <w>vide</w>
       <w>virker</w>
+      <w>viser</w>
       <w>vores</w>
+      <w>værdierne</w>
+      <w>være</w>
       <w>ændre</w>
+      <w>ændrer</w>
     </words>
   </dictionary>
 </component>

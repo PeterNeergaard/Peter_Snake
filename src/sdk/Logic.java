@@ -77,38 +77,42 @@ public class Logic {
     private class UserMenuActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == screen.getUserMenu().getBtnPlay())
+            if (e.getSource() == screen.getUserMenu().getBtnPlay()) // når brugeren trykker på play
             {
-                screen.getPlay().clearPlay();
-                screen.getPlay().clearName();
-                screen.show(Screen.PLAY);
+                screen.getPlay().clearPlay(); // rydder feltet play i tilfælde af der står noget
+                screen.getPlay().clearName(); // rydder feltet name i tilfælde af der står noget
+                screen.show(Screen.PLAY); //viser play skærmen
             }
-            else if (e.getSource() == screen.getUserMenu().getBtnJoinGame())
+            else if (e.getSource() == screen.getUserMenu().getBtnJoinGame()) // når brugeren trykker på join game
             {
+                //ændrer synlighed af nogle knapper på skærmen
                 screen.getJoingame().getBtnJoin().setVisible(true);
                 screen.getJoingame().getBtnJoin().setEnabled(true);
                 screen.getJoingame().getBtnPlay().setVisible(false);
                 screen.getJoingame().getBtnPlay().setEnabled(false);
-                screen.getJoingame().clearGameID();
-                screen.getJoingame().clearMoves();
-                screen.show(Screen.JOINGAME);
+
+                screen.getJoingame().clearGameID(); // rydder feltet gameID i tilfælde af der står noget
+                screen.getJoingame().clearMoves(); // rydder feltet moves i tilfælde af der står noget
+                screen.show(Screen.JOINGAME); // viser join game skærmen
             }
-            else if (e.getSource() == screen.getUserMenu().getBtnHighscore())
+            else if (e.getSource() == screen.getUserMenu().getBtnHighscore()) // når brugeren trykker på highscore
             {
+                //Opretter en arraylist Score[] som får værdierne der returneres fra highscore() metoden i serverconnection
                 Score[] highScores = serverConnection.highScore();
-                screen.show(Screen.HIGHSCORE);
-                screen.getHighScore().HighScoreTable(highScores);
+
+                screen.show(Screen.HIGHSCORE); // viser highscore skærmen
+                screen.getHighScore().HighScoreTable(highScores); //henter tabellen til at vise highscore
 
             }
-            else if (e.getSource() == screen.getUserMenu().getBtnDelete())
+            else if (e.getSource() == screen.getUserMenu().getBtnDelete()) // når brugeren trykker på delete
             {
-                screen.show(Screen.DELETEGAME);
+                screen.show(Screen.DELETEGAME); //viser delete skærmen
             }
-            else if (e.getSource() == screen.getUserMenu().getBtnLogOut())
+            else if (e.getSource() == screen.getUserMenu().getBtnLogOut()) // når brugeren trykker på log out
             {
-                screen.show(Screen.WELCOME);
-                screen.getWelcome().clearUserName();
-                screen.getWelcome().clearPassword();
+                screen.show(Screen.WELCOME); //viser welcome skærmen
+                screen.getWelcome().clearUserName(); //rydder username feltet
+                screen.getWelcome().clearPassword(); //rydder password feltet
 
             }
         }
@@ -121,84 +125,86 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-                // Actions hvis man klikker på Submit knappen
+                // Actions hvis man trykker på Submit knappen
                 if (e.getSource() == screen.getPlay().getBtnPlay())
                 {
-                    Gamer host = new Gamer();
-                    host.setId(1);
-                    host.setControls(screen.getPlay().getMoves());
+                    Gamer host = new Gamer(); // opretter et object af Gamer med navnet host
+                    host.setId(currentUser.getId()); //sætter hostID til at være lig med den bruger som er logget ind
+                    host.setControls(screen.getPlay().getMoves()); //sætter host control til det bugeren taster
 
-                    Game game = new Game();
-                    game.setName(screen.getPlay().getName());
-                    game.setHost(host);
-                    game.setMapSize(20);
+                    Game game = new Game(); //opretter et objekt af Game, med navnet game
+                    game.setName(screen.getPlay().getName()); // sætter spillets navn til det brugeren taster
+                    game.setHost(host); // sætter spillet host til at være host
+                    game.setMapSize(20); //sætter map size som 20
 
-                    serverConnection.playGame(game);
+                    serverConnection.playGame(game); //kører playGame metoden fra serverconnection
 
+                    // viser confirmation panel
                     screen.getConfirmationPanel().showPlay(screen.play.getName(), screen.play.getMoves());
                         screen.show(Screen.CONFIRMATION);
 
 
                 }
-                else if (e.getSource() == screen.getPlay().getBtnCancel())
+                else if (e.getSource() == screen.getPlay().getBtnCancel()) // hvis brugeren trykker på back
                 {
-                    screen.show(Screen.USERMENU);
-                    screen.getPlay().clearPlay();
+                    screen.show(Screen.USERMENU); //viser menuen
                 }
         }
     }
 
+    // Join game ActionListener
     private class JoinGameActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-
-            // Actions hvis man klikker på play knappen
+            // Actions hvis man trykker på join knappen
             if (e.getSource() == screen.getJoingame().getBtnJoin())
             {
-                int gameId = screen.getJoingame().getIntGameId();
+                int gameId = screen.getJoingame().getIntGameId(); //opretter et gameID og sætter det lig det brugeren taster
 
-                Gamer opponent = new Gamer();
-                opponent.setId(2);
-                opponent.setControls(screen.getJoingame().getMoves());
+                Gamer opponent = new Gamer(); //opretter et objekt af Gamer, med navnet opponent
+                opponent.setId(currentUser.getId()); //sætter opponentID til at være lig med den bruger som er logget ind
 
-                Game game = new Game();
-                game.setOpponent(opponent);
-                game.setGameId(gameId);
+                Game game = new Game(); //opretter et objekt af Game, med navnet game
+                game.setOpponent(opponent); //sætter opponent til at være opponent
+                game.setGameId(gameId); //sætter gameID til at være det brugeren har tastet
 
+                //kører join game metoden og sætter den lig med en boolean success
                 boolean success = serverConnection.joinGame(game);
 
-                if (success) {
+                if (success) { //returneres true vises en ny knap
+                    //skjuler/viser nogle knapper
                     screen.getJoingame().getBtnJoin().setVisible(false);
                     screen.getJoingame().getBtnJoin().setEnabled(false);
                     screen.getJoingame().getBtnPlay().setVisible(true);
                     screen.getJoingame().getBtnPlay().setEnabled(true);
                 }
-                else {
+                else { // returneres false printes der fail
                     System.out.println("fail");
                 }
             }
-            else if (e.getSource() == screen.getJoingame().getBtnPlay()) {
+            else if (e.getSource() == screen.getJoingame().getBtnPlay()) { //når brugeren trykke på play knappen
 
                 int gameId = screen.getJoingame().getIntGameId();
 
                 Gamer opponent = new Gamer();
-                opponent.setControls(screen.getJoingame().getMoves());
+                opponent.setControls(screen.getJoingame().getMoves()); //sætter opponent control til det bugeren taster
 
-                Game game = new Game();
-                game.setOpponent(opponent);
-                game.setGameId(gameId);
+                Game game = new Game(); //opretter et objekt af Game, med navnet game
+                game.setOpponent(opponent); //sætter opponent til at være opponent
+                game.setGameId(gameId); //sætter gameID til at være det brugeren har tastet
 
-                serverConnection.startGame(game);
+                serverConnection.startGame(game); // kører start game metoden fra serverConnection
 
+                //viser confirmationpanel
                 screen.getConfirmationPanel().showJoinGame(screen.joinGame.getMoves(), screen.joinGame.getGameId());
                 screen.show(Screen.CONFIRMATION);
             }
-            else if (e.getSource() == screen.getJoingame().getBtnCancel()) {
-                screen.show(Screen.USERMENU);
-                screen.getJoingame().clearGameID();
-                screen.getJoingame().clearMoves();
+            else if (e.getSource() == screen.getJoingame().getBtnCancel()) { //hvis der trykkes på back
+                screen.show(Screen.USERMENU); // viser menuen
+                screen.getJoingame().clearGameID(); //ryder GameID feltet
+                screen.getJoingame().clearMoves(); // rydder moves feltet
             }
         }
     }
@@ -209,25 +215,29 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            // Actions hvis man klikker på delete knappen
+            // Actions hvis man trykker på delete knappen
             if (e.getSource() == screen.getDeleteGame().getBtnDeleteGame()) {
 
+                // String sættes lig med det brugeren indtaster
                 String gameId = screen.getDeleteGame().gettxtDelete();
 
+                //kører delete game metoden og sætter den lig med en boolean success
                 boolean success = serverConnection.deleteGame(gameId);
-                if (success) {
-                        screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
-                        screen.show(Screen.CONFIRMATION);
-                        screen.getDeleteGame().clearDeleteGame();
+
+                if (success) { //retuneres true slettes spillet
+                    //confirmation panel vises
+                    screen.getConfirmationPanel().showDelete(screen.deleteGame.gettxtDelete());
+                    screen.show(Screen.CONFIRMATION);
+                    screen.getDeleteGame().clearDeleteGame(); //rydder delete game feltet
                 }
-                else {
+                else { // returneres false printes fail
                     System.out.println("fail");
                 }
             }
-            else if (e.getSource() == screen.getDeleteGame().getBtnCancel())
+            else if (e.getSource() == screen.getDeleteGame().getBtnCancel()) // hvis der trykkes på back
             {
-                screen.show(Screen.USERMENU);
-                screen.getDeleteGame().clearDeleteGame();
+                screen.show(Screen.USERMENU); // bruger menuen vises
+                screen.getDeleteGame().clearDeleteGame(); // rydder delete game felt
             }
         }
     }
@@ -237,24 +247,24 @@ public class Logic {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            // Actions hvis man klikker på tilbage knappen
+            // Actions hvis man trykker på back knappen
             if (e.getSource() == screen.getHighScore().getBtnBack())
             {
-                screen.getHighScore().clearTable();
-                screen.show(Screen.USERMENU);
+                screen.getHighScore().clearTable(); //rydder highscore tabellen
+                screen.show(Screen.USERMENU); //viser menuen
             }
         }
     }
 
+    // Confirmation panel ActionListener
     private class ConfirmationPanelActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == screen.getConfirmationPanel().getBtnOk()) ;
+            if (e.getSource() == screen.getConfirmationPanel().getBtnOk()) ; // når der trykkes på ok
 
-            screen.show(Screen.USERMENU);
+            screen.show(Screen.USERMENU); // menuen vises
         }
     }
 
 
 }
-
